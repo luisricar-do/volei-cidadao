@@ -274,7 +274,7 @@ export function InteractiveFooter() {
                 {config.footer.copyright}
               </p>
               <p className="text-gray-500" style={{ fontFamily: "Inter, sans-serif", fontSize: "0.85rem" }}>
-                {config.footer.madeBy}
+                Feito com carinho por <a href="https://www.linkedin.com/in/luisricar-do" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-colors">Luis Ricardo</a>
               </p>
             </div>
           </div>
