@@ -1,4 +1,5 @@
 import { Gift, Package, Truck, ChevronRight } from "lucide-react";
+import { config, getWhatsAppUrl } from "@/app/config";
 
 const ways = [
   {
@@ -36,7 +37,7 @@ export function HelpSection() {
             <span className="text-[#1D4ED8]">esse Sonho Vivo</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto" style={{ fontFamily: 'Inter, sans-serif', fontSize: '1rem', lineHeight: '1.7' }}>
-            O Vôlei Cidadão é uma iniciativa voluntária. Sua empresa ou família pode contribuir com a doação de materiais, uniformes ou apoio logístico para competições. <strong>Cada contribuição transforma uma vida.</strong>
+            O {config.brand.name} é uma iniciativa voluntária. Sua empresa ou família pode contribuir com a doação de materiais, uniformes ou apoio logístico para competições. <strong>Cada contribuição transforma uma vida.</strong>
           </p>
         </div>
 
@@ -74,7 +75,7 @@ export function HelpSection() {
           </div>
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
             <a
-              href="https://wa.me/5512999999999?text=Ol%C3%A1%2C%20gostaria%20de%20apoiar%20o%20Projeto%20V%C3%B4lei%20Cidad%C3%A3o!"
+              href={getWhatsAppUrl(config.whatsappMessages.support)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] active:scale-95 text-white px-6 py-3.5 rounded-full transition-all shadow-lg"
@@ -84,7 +85,7 @@ export function HelpSection() {
               <ChevronRight size={16} />
             </a>
             <a
-              href="https://www.instagram.com/volei_cidadao_sbs"
+              href={config.contact.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 border border-white/30 text-white px-6 py-3.5 rounded-full transition-all"

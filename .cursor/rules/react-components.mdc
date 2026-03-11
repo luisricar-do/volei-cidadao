@@ -1,0 +1,45 @@
+---
+description: Padrões de componentes React e estrutura TSX
+globs: "**/*.tsx"
+alwaysApply: false
+---
+
+# Componentes React
+
+## Estilo
+
+- Usar **componentes funcionais** (não classes).
+- Exportar componentes nomeados: `export function AboutSection() { ... }` ou `export function Button() { ... }; export { Button }`.
+- Manter um componente por arquivo para seções de página; em `ui/` pode haver componentes auxiliares no mesmo arquivo se forem privados ao primitivo.
+
+## Props e tipagem
+
+- Tipar props com TypeScript. Para estender elementos nativos, usar `React.ComponentProps<"button">` (ou o elemento adequado) e interseção com props do componente.
+- Para variantes de estilo (ex.: Button), usar **class-variance-authority** (`cva`) e `VariantProps<typeof buttonVariants>`; expor variantes via `className` e `cn()`.
+
+Exemplo de assinatura:
+
+```tsx
+function Button({
+  className,
+  variant,
+  size,
+  asChild = false,
+  ...props
+}: React.ComponentProps<"button"> &
+  VariantProps<typeof buttonVariants> & { asChild?: boolean }) {
+  const Comp = asChild ? Slot : "button";
+  return <Comp className={cn(buttonVariants({ variant, size, className }))} {...props} />;
+}
+```
+
+## Estilos e classes
+
+- Preferir **Tailwind** para layout e aparência. Para combinar classes condicionais, usar o helper **`cn()`** de `@/app/components/ui/utils` (ou `./utils` dentro de `ui/`).
+- Evitar CSS-in-JS inline para blocos grandes; usar `style={{ ... }}` só para valores dinâmicos (ex.: cores do tema da seção) ou quando o design exige (ex.: `fontFamily: 'Montserrat, sans-serif'`).
+- Seções de página costumam usar: `section` com `id` para âncoras (ex.: `id="sobre"`), container `max-w-6xl mx-auto px-4 sm:px-6`, grid/flex e espaçamento responsivo (`py-16 md:py-24`).
+
+## Acessibilidade e semântica
+
+- Usar elementos semânticos: `section`, `header`, `nav`, `main`, `footer`.
+- Incluir `alt` em imagens; preferir textos visíveis para ações importantes.

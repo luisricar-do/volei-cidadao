@@ -2,33 +2,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { VolleyballBall } from "./VolleyballBall";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-
-const achievements = [
-  {
-    title: "Copa CISMA 2025",
-    subtitle: "Campeões Sub-18",
-    image: "https://images.unsplash.com/photo-1593786481097-48eb4275c512?w=800&q=80",
-    medal: "🏆",
-  },
-  {
-    title: "Taça Ouro",
-    subtitle: "4º Lugar - Copa Amizade",
-    image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=800&q=80",
-    medal: "🥉",
-  },
-  {
-    title: "Treinos Intensivos",
-    subtitle: "Formando Atletas Campeões",
-    image: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=800&q=80",
-    medal: "💪",
-  },
-  {
-    title: "União e Dedicação",
-    subtitle: "Time Vôlei Cidadão",
-    image: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=800&q=80",
-    medal: "🤝",
-  },
-];
+import { config, getAssetUrl } from "@/app/config";
 
 export function InteractiveGallerySection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -147,7 +121,7 @@ export function InteractiveGallerySection() {
 
         {/* Conquistas - Corredor da Fama */}
         <div className="space-y-32 mt-20">
-          {achievements.map((achievement, index) => {
+          {config.achievements.map((achievement, index) => {
             const isEven = index % 2 === 0;
             const startProgress = 0.2 + (index * 0.15);
             const endProgress = startProgress + 0.1;
@@ -184,7 +158,7 @@ export function InteractiveGallerySection() {
                 >
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <ImageWithFallback
-                      src={achievement.image}
+                      src={getAssetUrl(achievement.image)}
                       alt={achievement.title}
                       className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
                     />

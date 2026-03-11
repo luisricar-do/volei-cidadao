@@ -1,0 +1,37 @@
+---
+description: Visão geral do projeto Vôlei Cidadão — stack, estrutura e convenções
+alwaysApply: true
+---
+
+# Projeto Vôlei Cidadão
+
+Landing page em React. Design de referência: [Figma](https://www.figma.com/design/XSqCX0QOIpxchl1JGfMTQa/Landing-Page-para-Vôlei-Cidadão).
+
+## Stack
+
+- **React 18** + **TypeScript**, **Vite 6**, **Tailwind CSS 4**
+- Componentes: **Radix UI** (primitivos em `src/app/components/ui/`), **MUI** quando necessário
+- Animações: **Motion**
+- Gerenciador de pacotes: **pnpm** (CI usa `pnpm install --frozen-lockfile`)
+
+## Estrutura
+
+- `src/app/` — App, rotas e componentes da aplicação
+- `src/app/components/` — Seções da landing (Hero, About, Stats, Gallery, etc.) e componentes de página
+- `src/app/components/ui/` — Primitivos reutilizáveis (Button, Dialog, Input, etc.); usar `cn()` de `./utils` para classes
+- `src/styles/` — `tailwind.css` (entry), `theme.css` (variáveis CSS e design tokens), `fonts.css`
+- `src/assets/` — imagens estáticas (logo, bola, etc.)
+
+## Imports
+
+- Usar alias **`@/`** para `src/`: `import x from "@/app/..."` ou `import logo from "@/assets/logo.jpeg"`
+- Imports de UI locais: `import { Button } from "./ui/button"` ou `from "../ui/button"` conforme a pasta
+
+## Deploy
+
+- **GitHub Pages** via Actions (branch `main`). Base path em produção: `BASE_PATH` (ex.: `/<repo-name>/`). Config em `vite.config.ts` e `.github/workflows/deploy-pages.yml`.
+
+## Idioma
+
+- Textos da interface e conteúdo do site: **português (BR)**.
+- Comentários e nomes no código: em português quando fizer sentido; nomes técnicos em inglês (variáveis, funções, tipos).

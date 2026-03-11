@@ -1,31 +1,14 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { config, getAssetUrl } from "@/app/config";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-const parallaxImages = [
-  {
-    src: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&q=80",
-    depth: 0.3,
-    position: { top: "10%", left: "10%" },
-  },
-  {
-    src: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=600&q=80",
-    depth: 0.5,
-    position: { top: "30%", right: "15%" },
-  },
-  {
-    src: "https://images.unsplash.com/photo-1593786481097-48eb4275c512?w=600&q=80",
-    depth: 0.7,
-    position: { bottom: "20%", left: "20%" },
-  },
-  {
-    src: "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=600&q=80",
-    depth: 0.4,
-    position: { top: "50%", right: "10%" },
-  },
-];
-
 export function ParallaxImages() {
+  const parallaxImages = config.momentos.images.map((item) => ({
+    src: getAssetUrl(item.image),
+    depth: item.depth,
+    position: item.position,
+  }));
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -54,7 +37,17 @@ export function ParallaxImages() {
             lineHeight: 1.2,
           }}
         >
-          Momentos que <span className="text-[#F59E0B]">Transformam</span>
+          <span
+            className="px-2 py-0.5 rounded-lg"
+            style={{
+              background: "rgba(255, 255, 255, 0.5)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+            }}
+          >
+            Momentos
+          </span>{" "}
+          que <span className="text-[#F59E0B]">Transformam</span>
         </h2>
         <p
           className="text-gray-600 max-w-2xl mx-auto"

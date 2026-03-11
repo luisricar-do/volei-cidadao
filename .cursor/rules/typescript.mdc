@@ -1,0 +1,29 @@
+---
+description: Convenções TypeScript e módulos
+globs: ["**/*.ts", "**/*.tsx"]
+alwaysApply: false
+---
+
+# TypeScript
+
+## Configuração do projeto
+
+- **strict**: ativo. Respeitar tipos estritos; evitar `any`; usar tipos explícitos em props e retornos quando não óbvios.
+- **Paths**: alias `@/*` → `./src/*`. Usar `@/` para imports a partir de `src/`.
+- **ESM**: projeto é `"type": "module"`; usar `import`/`export`.
+
+## Boas práticas
+
+- **Sem variáveis não usadas**: `noUnusedLocals` e `noUnusedParameters` ativos; remover ou prefixar com `_` quando necessário.
+- **Switch**: tratar todos os casos ou usar `default` com fallback; evitar fall-through não intencional (`noFallthroughCasesInSwitch`).
+- **Componentes**: tipar props com interface ou tipo; para estender HTML, usar `React.ComponentProps<"elemento">` e interseção.
+- **Eventos**: usar tipos do React quando possível (`React.FormEvent`, `React.MouseEvent<HTMLButtonElement>`, etc.).
+
+## Exemplo de import com alias
+
+```ts
+import { cn } from "@/app/components/ui/utils";
+import logo from "@/assets/logo.jpeg";
+```
+
+Imports relativos para arquivos na mesma pasta ou em `ui/`: `./utils`, `./button`, `../Navbar`.

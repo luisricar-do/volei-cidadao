@@ -1,12 +1,5 @@
 import { MapPin, Clock, Phone, ChevronRight } from "lucide-react";
-
-const locationImg = "https://images.unsplash.com/photo-1770700218929-1664b1bd7708?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzcG9ydCUyMHJlY3JlYXRpb24lMjBjZW50ZXIlMjBwYXJrJTIwbGVpc3VyZSUyMGZhY2lsaXR5fGVufDF8fHx8MTc3MzI1MTc3NHww&ixlib=rb-4.1.0&q=80&w=1080";
-
-const schedule = [
-  { age: "9 - 11 anos", days: "Segunda e Quarta", time: "14h00 - 15h30" },
-  { age: "12 - 14 anos", days: "Terça e Quinta", time: "15h30 - 17h00" },
-  { age: "15 - 17 anos", days: "Segunda, Quarta e Sexta", time: "17h00 - 18h30" },
-];
+import { config, getAssetUrl, getWhatsAppUrl } from "@/app/config";
 
 export function LocationSection() {
   return (
@@ -37,16 +30,16 @@ export function LocationSection() {
                 </div>
                 <div>
                   <h3 className="text-gray-900 mb-1" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '1rem' }}>
-                    Centro de Lazer do Trabalhador
+                    {config.location.venueFull}
                   </h3>
                   <p className="text-[#1D4ED8]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.9rem' }}>
-                    José Antonio Teixeira
+                    {config.location.venueSubtitle}
                   </p>
                   <p className="text-gray-600 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>
-                    Jardim dos Cisnes — São Bento do Sapucaí, SP
+                    {config.location.addressFull}
                   </p>
                   <a
-                    href="https://maps.google.com"
+                    href={config.location.mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 mt-2 text-[#1D4ED8] hover:text-[#1E40AF] transition-colors"
@@ -69,7 +62,7 @@ export function LocationSection() {
                 </h3>
               </div>
               <div className="space-y-3">
-                {schedule.map((item, i) => (
+                {config.schedule.map((item, i) => (
                   <div key={i} className="bg-white rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center justify-between flex-wrap gap-2">
                       <div>
@@ -100,11 +93,11 @@ export function LocationSection() {
               <div className="flex items-center gap-3 mb-2">
                 <Phone size={20} className="text-[#FCD34D]" />
                 <span className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>
-                  Fale com o Treinador Rafael
+                  Fale com o {config.brand.coachName}
                 </span>
               </div>
               <a
-                href="https://wa.me/5512999999999"
+                href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-3 w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE57] active:scale-95 text-white px-5 py-3 rounded-xl transition-all"
@@ -122,8 +115,8 @@ export function LocationSection() {
           {/* Map visual / Image */}
           <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ minHeight: '380px' }}>
             <img
-              src={locationImg}
-              alt="Centro de Lazer"
+              src={getAssetUrl(config.location.image)}
+              alt={config.location.venueShort}
               className="w-full h-full object-cover"
               style={{ minHeight: '380px' }}
             />
@@ -138,10 +131,10 @@ export function LocationSection() {
                   </div>
                   <div>
                     <div className="text-gray-900" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '0.9rem' }}>
-                      Centro de Lazer José A. Teixeira
+                      {config.location.venueShort}
                     </div>
                     <div className="text-gray-500" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem' }}>
-                      Jardim dos Cisnes, São Bento do Sapucaí
+                      {config.location.address}, {config.brand.city}
                     </div>
                   </div>
                 </div>

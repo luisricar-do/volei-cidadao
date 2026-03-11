@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { VolleyballBall } from "./VolleyballBall";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { config, getAssetUrl } from "@/app/config";
 
 export function InteractiveHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -39,7 +40,7 @@ export function InteractiveHero() {
           }}
         >
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=1920&q=80"
+            src={getAssetUrl(config.interactiveHero.image)}
             alt="Ginásio"
             className="w-full h-full object-cover"
           />
@@ -80,8 +81,8 @@ export function InteractiveHero() {
               textShadow: "0 10px 30px rgba(0,0,0,0.5), 0 0 60px rgba(29, 78, 216, 0.4)",
             }}
           >
-            PROJETO<br />
-            <span className="text-[#F59E0B]">VÔLEI CIDADÃO</span>
+            {config.interactiveHero.title.split(' ')[0]}<br />
+            <span className="text-[#F59E0B]">{config.interactiveHero.title.split(' ').slice(1).join(' ')}</span>
           </motion.h1>
 
           <motion.p
@@ -96,7 +97,7 @@ export function InteractiveHero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
-            Transformando vidas através do vôlei em São Bento do Sapucaí
+            {config.interactiveHero.subtitle}
           </motion.p>
 
           <motion.div
@@ -116,7 +117,7 @@ export function InteractiveHero() {
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(245, 158, 11, 0.4)" }}
               whileTap={{ scale: 0.95 }}
             >
-              🏆 Nossas Conquistas
+              🏆 {config.interactiveHero.ctaConquistas}
             </motion.a>
             <motion.a
               href="#apoie"
@@ -129,7 +130,7 @@ export function InteractiveHero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Quero Participar
+              {config.interactiveHero.ctaParticipate}
             </motion.a>
           </motion.div>
         </motion.div>

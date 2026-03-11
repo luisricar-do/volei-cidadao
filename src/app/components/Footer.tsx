@@ -1,13 +1,6 @@
-import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
+import { MapPin, Phone, Instagram, Facebook } from "lucide-react";
 import logo from "figma:asset/c1425d0b700bfb985f022cdbaa8a0bc6a26be260.png";
-
-const quickLinks = [
-  { label: "Início", href: "#hero" },
-  { label: "Sobre o Projeto", href: "#sobre" },
-  { label: "Conquistas", href: "#conquistas" },
-  { label: "Onde Treinamos", href: "#local" },
-  { label: "Como Ajudar", href: "#apoie" },
-];
+import { config, getWhatsAppUrl } from "@/app/config";
 
 export function Footer() {
   return (
@@ -19,21 +12,21 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={logo} 
-                alt="Vôlei Cidadão" 
+                alt={config.brand.name} 
                 className="w-14 h-14 object-contain"
               />
               <div>
-                <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: '1.1rem', lineHeight: '1' }}>Vôlei Cidadão</div>
-                <div className="text-[#F59E0B]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: '0.75rem', lineHeight: '1.2' }}>São Bento do Sapucaí</div>
+                <div style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: '1.1rem', lineHeight: '1' }}>{config.brand.name}</div>
+                <div className="text-[#F59E0B]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 600, fontSize: '0.75rem', lineHeight: '1.2' }}>{config.brand.city}</div>
               </div>
             </div>
             <p className="text-gray-400 mb-5" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem', lineHeight: '1.6' }}>
-              Transformando vidas através do vôlei desde o início do projeto. Mais que um esporte — uma escola de cidadania.
+              {config.brand.tagline} desde o início do projeto. {config.brand.taglineFull}
             </p>
             {/* Social */}
             <div className="flex gap-3">
               <a
-                href="https://www.instagram.com/volei_cidadao_sbs"
+                href={config.contact.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-gradient-to-r hover:from-[#833AB4] hover:to-[#FD1D1D] flex items-center justify-center transition-all"
@@ -41,7 +34,7 @@ export function Footer() {
                 <Instagram size={18} />
               </a>
               <a
-                href="https://www.facebook.com/VoleiCidadao"
+                href={config.contact.facebookUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#1877F2] flex items-center justify-center transition-all"
@@ -49,7 +42,7 @@ export function Footer() {
                 <Facebook size={18} />
               </a>
               <a
-                href="https://wa.me/5512999999999"
+                href={getWhatsAppUrl()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-[#25D366] flex items-center justify-center transition-all"
@@ -67,7 +60,7 @@ export function Footer() {
               LINKS RÁPIDOS
             </h4>
             <ul className="space-y-2">
-              {quickLinks.map((link) => (
+              {config.footerQuickLinks.map((link) => (
                 <li key={link.href}>
                   <a
                     href={link.href}
@@ -87,24 +80,19 @@ export function Footer() {
               CONQUISTAS 2025
             </h4>
             <div className="space-y-3">
-              <div className="flex items-start gap-2">
-                <span className="text-lg">🏆</span>
-                <div>
-                  <div className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}>Copa CISMA 2025</div>
-                  <div className="text-gray-400" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem' }}>Campeões Sub-18</div>
+              {config.achievements.slice(0, 2).map((a) => (
+                <div key={a.title} className="flex items-start gap-2">
+                  <span className="text-lg">{a.medal}</span>
+                  <div>
+                    <div className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}>{a.title}</div>
+                    <div className="text-gray-400" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem' }}>{a.subtitle}</div>
+                  </div>
                 </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-lg">🥉</span>
-                <div>
-                  <div className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}>Taça Ouro</div>
-                  <div className="text-gray-400" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem' }}>4º lugar - Copa Amizade</div>
-                </div>
-              </div>
+              ))}
               <div className="flex items-start gap-2">
                 <span className="text-lg">🤝</span>
                 <div>
-                  <div className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}>150+ Jovens</div>
+                  <div className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}>{config.stats.studentsDisplay} Jovens</div>
                   <div className="text-gray-400" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem' }}>Atendidos gratuitamente</div>
                 </div>
               </div>
@@ -120,26 +108,26 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin size={16} className="text-[#F59E0B] mt-0.5 flex-shrink-0" />
                 <span className="text-gray-400" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem', lineHeight: '1.5' }}>
-                  Centro de Lazer José A. Teixeira<br />
-                  Jardim dos Cisnes, SBS - SP
+                  {config.location.venueShort}<br />
+                  {config.location.addressLine}
                 </span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={16} className="text-[#F59E0B] flex-shrink-0" />
-                <a href="tel:+5512999999999" className="text-gray-400 hover:text-white transition-colors" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem' }}>
-                  (12) 99999-9999
+                <a href={`tel:+55${config.contact.whatsapp}`} className="text-gray-400 hover:text-white transition-colors" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem' }}>
+                  {config.contact.whatsappDisplay}
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Instagram size={16} className="text-[#F59E0B] flex-shrink-0" />
                 <a
-                  href="https://www.instagram.com/volei_cidadao_sbs"
+                  href={config.contact.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
                   style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.875rem' }}
                 >
-                  @volei_cidadao_sbs
+                  {config.contact.instagramHandle}
                 </a>
               </div>
             </div>
@@ -149,10 +137,10 @@ export function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-gray-500 text-center sm:text-left" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.825rem' }}>
-            © 2025 Projeto Vôlei Cidadão — Treinador Rafael. São Bento do Sapucaí, SP.
+            {config.footer.copyright}
           </p>
           <p className="text-gray-500" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.825rem' }}>
-            Feito com ❤️ pela comunidade
+            {config.footer.madeBy}
           </p>
         </div>
       </div>

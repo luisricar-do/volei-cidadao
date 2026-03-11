@@ -1,0 +1,29 @@
+---
+description: Convenções de Tailwind CSS e design system (theme, tokens)
+globs: ["**/*.tsx", "**/*.css"]
+alwaysApply: false
+---
+
+# Tailwind e design system
+
+## Configuração
+
+- **Tailwind v4**: entrada em `src/styles/tailwind.css` com `@import 'tailwindcss'` e `@source` para arquivos do projeto; plugin `@tailwindcss/vite` no Vite.
+- Tokens e tema em **`src/styles/theme.css`**: variáveis CSS em `:root` e `.dark`, e `@theme inline` para cores/radius usados pelo Tailwind (ex.: `--color-primary`, `--radius`, `--color-background`).
+
+## Uso de cores
+
+- Preferir tokens do tema quando existirem: `bg-background`, `text-foreground`, `bg-primary`, `text-primary`, `border-border`, `ring-ring`, etc.
+- Para cores específicas do design da landing (ex.: azul e amarelo do Vôlei Cidadão), pode-se usar hex no Tailwind: `text-[#1D4ED8]`, `bg-[#F59E0B]`, ou variáveis locais. Manter consistência com o Figma.
+- Componentes em `ui/` devem usar principalmente tokens (`primary`, `destructive`, `muted`, `accent`, etc.) para suportar tema claro/escuro.
+
+## Utilitários e responsividade
+
+- Layout responsivo: mobile-first com `sm:`, `md:`, `lg:` quando necessário.
+- Espaçamento de seções: padrão como `py-16 md:py-24`, container `max-w-6xl mx-auto px-4 sm:px-6`.
+- Para mesclar e sobrescrever classes, usar sempre **`cn()`** (de `src/app/components/ui/utils.ts`): `cn(buttonVariants({ variant }), className)`.
+
+## CSS global e base
+
+- Estilos de base (tipografia, body) estão em `theme.css` em `@layer base`. Não duplicar regras de `h1`–`h4`, `button`, `input`, `label` a menos que seja override intencional em um componente.
+- Fontes: Montserrat usada na landing; import/config em `src/styles/fonts.css`. Para aplicar: `style={{ fontFamily: 'Montserrat, sans-serif' }}` ou classe se houver utilitário definido.

@@ -2,11 +2,13 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { VolleyballBall } from "./VolleyballBall";
 
+import { config } from "@/app/config";
+
 const stats = [
-  { value: "150+", label: "Jovens Atendidos", icon: "👥" },
-  { value: "9-17", label: "Anos de Idade", icon: "🎯" },
-  { value: "100%", label: "Gratuito", icon: "💚" },
-  { value: "SBS", label: "São Bento do Sapucaí", icon: "📍" },
+  { value: config.stats.studentsDisplay, label: "Jovens Atendidos", icon: "👥" },
+  { value: config.stats.ageRange, label: "Anos de Idade", icon: "🎯" },
+  { value: config.stats.freeLabel, label: config.stats.gratuito, icon: "💚" },
+  { value: config.brand.cityShort, label: config.brand.city, icon: "📍" },
 ];
 
 export function InteractiveStatsSection() {

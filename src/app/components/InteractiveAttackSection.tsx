@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { VolleyballBall } from "./VolleyballBall";
+import { config } from "@/app/config";
 
 export function InteractiveAttackSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -112,7 +113,7 @@ export function InteractiveAttackSection() {
             transition={{ delay: 0.5 }}
           >
             CAMPEÕES<br />
-            <span className="text-[#0F1F4E]">COPA CISMA 2025</span>
+            <span className="text-[#0F1F4E]">{config.achievements[0].title.toUpperCase()}</span>
           </motion.h2>
 
           {/* Subtítulo */}

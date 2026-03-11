@@ -1,17 +1,11 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
+import { config } from "@/app/config";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { label: "Início", href: "#hero" },
-    { label: "Sobre", href: "#sobre" },
-    { label: "Conquistas", href: "#conquistas" },
-    { label: "Local", href: "#local" },
-    { label: "Apoie", href: "#apoie" },
-  ];
+  const { nav, brand } = config;
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
@@ -21,18 +15,18 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <img 
               src={logo} 
-              alt="Vôlei Cidadão" 
+              alt={brand.name} 
               className="w-12 h-12 object-contain"
             />
             <div className="leading-tight">
-              <div className="text-[#1D4ED8]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '0.85rem', lineHeight: '1' }}>VÔLEI</div>
-              <div className="text-[#F59E0B]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1' }}>CIDADÃO SBS</div>
+              <div className="text-[#1D4ED8]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '0.85rem', lineHeight: '1' }}>{brand.nameShort}</div>
+              <div className="text-[#F59E0B]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.7rem', lineHeight: '1' }}>{brand.nameSuffix}</div>
             </div>
           </div>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
+            {nav.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -50,7 +44,7 @@ export function Navbar() {
             className="hidden md:inline-flex items-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] text-white px-4 py-2 rounded-full transition-colors"
             style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}
           >
-            Quero Participar
+            {nav.ctaText}
           </a>
 
           {/* Mobile menu button */}
@@ -67,7 +61,7 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
           <nav className="flex flex-col px-4 py-3 gap-1">
-            {navLinks.map((link) => (
+            {nav.links.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -84,7 +78,7 @@ export function Navbar() {
               className="mt-3 mb-2 text-center bg-[#F59E0B] hover:bg-[#D97706] text-white px-4 py-3 rounded-full transition-colors"
               style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}
             >
-              Quero Participar
+              {nav.ctaText}
             </a>
           </nav>
         </div>

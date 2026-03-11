@@ -1,7 +1,9 @@
-const images = [
+import { config } from "@/app/config";
+
+const getGalleryImages = () => [
   {
     src: "https://images.unsplash.com/photo-1764408721535-2dcb912db83e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2b2xsZXliYWxsJTIwdGVhbSUyMGNlbGVicmF0aW9uJTIwdHJvcGh5JTIwd2lubmVyc3xlbnwxfHx8fDE3NzMyNTE3Njh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "🏆 Campeões Copa CISMA 2025",
+    title: `🏆 Campeões ${config.achievements[0].title}`,
     subtitle: "Nossa equipe Sub-18 no topo do pódio regional!",
     badge: "CAMPEÕES",
     badgeColor: "#F59E0B",
@@ -9,16 +11,16 @@ const images = [
   },
   {
     src: "https://images.unsplash.com/photo-1765108922700-6d6f37f582c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx2b2xsZXliYWxsJTIwYWN0aW9uJTIwc3Bpa2UlMjBqdW1wJTIwaW5kb29yJTIwY291cnR8ZW58MXx8fHwxNzczMjUxNzcyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "🏅 Taça Ouro - Copa Amizade",
-    subtitle: "4º lugar entre as melhores equipes da região.",
+    title: `🏅 ${config.achievements[1].title} - Copa Amizade`,
+    subtitle: config.achievements[1].subtitle,
     badge: "4º LUGAR",
     badgeColor: "#1D4ED8",
     large: false,
   },
   {
     src: "https://images.unsplash.com/photo-1629495025620-26d5f4ada7c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxraWRzJTIwc21pbGluZyUyMGhhcHB5JTIwc3BvcnQlMjB0ZWFtJTIwb3V0ZG9vcnxlbnwxfHx8fDE3NzMyNTE3NzF8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    title: "🤝 150 Sorrisos",
-    subtitle: "Jovens atendidos no Centro de Lazer.",
+    title: `🤝 ${config.stats.studentsDisplay} Sorrisos`,
+    subtitle: `Jovens atendidos no ${config.location.venueShort}.`,
     badge: "COMUNIDADE",
     badgeColor: "#16A34A",
     large: false,
@@ -34,6 +36,7 @@ const images = [
 ];
 
 export function GallerySection() {
+  const images = getGalleryImages();
   return (
     <section id="conquistas" className="py-16 md:py-24 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -116,7 +119,7 @@ export function GallerySection() {
         {/* Instagram CTA */}
         <div className="mt-8 text-center">
           <a
-            href="https://www.instagram.com/volei_cidadao_sbs"
+            href={config.contact.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-gradient-to-r from-[#833AB4] via-[#FD1D1D] to-[#F77737] text-white px-6 py-3 rounded-full hover:opacity-90 active:scale-95 transition-all shadow-md"
@@ -125,7 +128,7 @@ export function GallerySection() {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
               <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
             </svg>
-            Seguir no Instagram @volei_cidadao_sbs
+            Seguir no Instagram {config.contact.instagramHandle}
           </a>
         </div>
       </div>

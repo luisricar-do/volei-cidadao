@@ -1,40 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 import { Users, Award, Calendar, MapPin } from "lucide-react";
+import { config } from "@/app/config";
 
-const stats = [
-  {
-    icon: Users,
-    value: 150,
-    suffix: "+",
-    label: "Jovens Atendidos",
-    description: "crianças e adolescentes",
-    color: "#1D4ED8",
-  },
-  {
-    icon: Calendar,
-    value: 9,
-    suffix: "-17",
-    label: "Faixa Etária",
-    description: "anos de idade",
-    color: "#F59E0B",
-  },
-  {
-    icon: Award,
-    value: 2,
-    suffix: "",
-    label: "Títulos em 2025",
-    description: "competições regionais",
-    color: "#1D4ED8",
-  },
-  {
-    icon: MapPin,
-    value: 1,
-    suffix: "",
-    label: "Centro de Lazer",
-    description: "Jardim dos Cisnes",
-    color: "#F59E0B",
-  },
+const statCards = [
+  { icon: Users, valueKey: "totalStudents" as const, suffix: "+", label: "Jovens Atendidos", description: "crianças e adolescentes", color: "#1D4ED8" },
+  { icon: Calendar, valueKey: "ageRange" as const, suffix: "", label: "Faixa Etária", description: "anos de idade", color: "#F59E0B" },
+  { icon: Award, valueKey: "titles2025" as const, suffix: "", label: "Títulos em 2025", description: "competições regionais", color: "#1D4ED8" },
+  { icon: MapPin, valueKey: "venueCount" as const, suffix: "", label: "Centro de Lazer", description: "Jardim dos Cisnes", color: "#F59E0B" },
 ];
+
+function getStatValue(key: typeof statCards[0]["valueKey"]): number {
+  const v = config.stats[key];
+  return typeof v === "string" ? 0 : v;
+}
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -109,36 +87,40 @@ export function StatsSection() {
 
         {/* Stats grid */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {stats.map((stat) => (
-            <div
-              key={stat.label}
-              className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 md:p-6 text-center hover:bg-white/15 transition-colors"
-            >
-              <div className="flex justify-center mb-3">
-                <div className="w-11 h-11 rounded-xl bg-[#F59E0B]/20 flex items-center justify-center">
-                  <stat.icon size={22} className="text-[#FCD34D]" />
+          {statCards.map((stat) => {
+            const value = stat.valueKey === "ageRange" ? 9 : getStatValue(stat.valueKey);
+            const suffix = stat.valueKey === "ageRange" ? "-17" : stat.suffix;
+            return (
+              <div
+                key={stat.label}
+                className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-5 md:p-6 text-center hover:bg-white/15 transition-colors"
+              >
+                <div className="flex justify-center mb-3">
+                  <div className="w-11 h-11 rounded-xl bg-[#F59E0B]/20 flex items-center justify-center">
+                    <stat.icon size={22} className="text-[#FCD34D]" />
+                  </div>
+                </div>
+                <div className="text-white mb-1">
+                  <AnimatedCounter target={value} suffix={suffix} />
+                </div>
+                <div className="text-white mb-1" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.9rem' }}>
+                  {stat.label}
+                </div>
+                <div className="text-blue-200" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.78rem' }}>
+                  {stat.description}
                 </div>
               </div>
-              <div className="text-white mb-1">
-                <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-              </div>
-              <div className="text-white mb-1" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.9rem' }}>
-                {stat.label}
-              </div>
-              <div className="text-blue-200" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.78rem' }}>
-                {stat.description}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Banner */}
         <div className="mt-10 bg-[#F59E0B] rounded-2xl p-6 md:p-8 text-center">
           <p className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: 'clamp(1.1rem, 3vw, 1.4rem)', lineHeight: '1.4' }}>
-            🏆 Campeões da Copa CISMA 2025 — Sub-18
+            🏆 {config.achievementsBanner.title}
           </p>
           <p className="text-white/85 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.95rem' }}>
-            4º lugar na Taça Ouro - Copa Amizade
+            {config.achievementsBanner.subtitle}
           </p>
         </div>
       </div>

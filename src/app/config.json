@@ -1,0 +1,170 @@
+{
+  "brand": {
+    "name": "Vôlei Cidadão",
+    "nameShort": "VÔLEI",
+    "nameSuffix": "CIDADÃO SBS",
+    "city": "São Bento do Sapucaí",
+    "cityShort": "SBS",
+    "tagline": "Transformando vidas através do vôlei",
+    "taglineFull": "Mais que um esporte — uma escola de cidadania",
+    "coachName": "Treinador Rafael"
+  },
+  "theme": {
+    "primary": "#1D4ED8",
+    "secondary": "#0F1F4E",
+    "accent": "#F59E0B",
+    "accentHover": "#D97706",
+    "accentLight": "#FCD34D"
+  },
+  "nav": {
+    "links": [
+      { "label": "Início", "href": "#hero" },
+      { "label": "Sobre", "href": "#sobre" },
+      { "label": "Conquistas", "href": "#conquistas" },
+      { "label": "Local", "href": "#local" },
+      { "label": "Apoie", "href": "#apoie" }
+    ],
+    "ctaText": "Quero Participar"
+  },
+  "contact": {
+    "whatsapp": "5512999999999",
+    "whatsappDisplay": "(12) 99999-9999",
+    "instagramUrl": "https://www.instagram.com/volei_cidadao_sbs",
+    "instagramHandle": "@volei_cidadao_sbs",
+    "facebookUrl": "https://www.facebook.com/VoleiCidadao"
+  },
+  "location": {
+    "venueName": "Centro de Lazer José Antonio Teixeira",
+    "venueShort": "Centro de Lazer José A. Teixeira",
+    "venueFull": "Centro de Lazer do Trabalhador",
+    "venueSubtitle": "José Antonio Teixeira",
+    "address": "Jardim dos Cisnes",
+    "cityState": "São Bento do Sapucaí, SP",
+    "addressFull": "Jardim dos Cisnes — São Bento do Sapucaí, SP",
+    "addressLine": "Jardim dos Cisnes, SBS - SP",
+    "mapUrl": "https://maps.google.com",
+    "image": "images/local.jpg"
+  },
+  "stats": {
+    "totalStudents": 150,
+    "studentsDisplay": "150+",
+    "ageRange": "9-17",
+    "freeLabel": "100%",
+    "gratuito": "Gratuito",
+    "venueCount": 1,
+    "titles2025": 2
+  },
+  "achievements": [
+    {
+      "title": "Bicampeãs! 🏆🏆",
+      "subtitle": "Sub13 — II Open de vôlei Sub13 do TCC: 4 jogos, 4 vitórias.",
+      "medal": "🏆",
+      "image": "images/conquistas/open-sub13.jpeg"
+    },
+    {
+      "title": "Copa CISMA 2025",
+      "subtitle": "Campeões Sub-18",
+      "medal": "🏆",
+      "image": "images/conquistas/copa-cisma.jpeg"
+    },
+    {
+      "title": "Taça Ouro",
+      "subtitle": "4º Lugar - Copa Amizade",
+      "medal": "🥉",
+      "image": "images/conquistas/taca-ouro.jpeg"
+    },
+    {
+      "title": "Vice-campeãs da Taça Ouro",
+      "subtitle": "Categoria Mirim",
+      "medal": "🥈",
+      "image": "images/conquistas/taca-ouro-mirim.jpeg"
+    },
+    {
+      "title": "União e Dedicação",
+      "subtitle": "Time Vôlei Cidadão",
+      "medal": "🤝",
+      "image": "images/conquistas/uniao.jpg"
+    }
+  ],
+  "achievementsBanner": {
+    "title": "Campeões da Copa CISMA 2025 — Sub-18",
+    "subtitle": "4º lugar na Taça Ouro - Copa Amizade"
+  },
+  "schedule": [
+    { "age": "9 - 11 anos", "days": "Segunda e Quarta", "time": "14h00 - 15h30" },
+    { "age": "12 - 14 anos", "days": "Terça e Quinta", "time": "15h30 - 17h00" },
+    { "age": "15 - 17 anos", "days": "Segunda, Quarta e Sexta", "time": "17h00 - 18h30" }
+  ],
+  "hero": {
+    "image": "images/hero.jpg",
+    "badge": "SÃO BENTO DO SAPUCAÍ / SP",
+    "headline": "Mais que um jogo, uma lição de vida.",
+    "subtitle": "Transformamos o futuro de {totalStudents} crianças e jovens em {city} através do esporte, da disciplina e da cidadania.",
+    "subtitleHighlight": "100% gratuito.",
+    "ctaParticipate": "Quero Participar",
+    "ctaStory": "Conheça nossa história",
+    "quickStats": [
+      { "value": "150+", "label": "Alunos" },
+      { "value": "100%", "label": "Gratuito" },
+      { "value": "9-17", "label": "Anos" }
+    ]
+  },
+  "interactiveHero": {
+    "image": "images/hero.jpeg",
+    "title": "PROJETO VÔLEI CIDADÃO",
+    "subtitle": "Transformando vidas através do vôlei em São Bento do Sapucaí",
+    "ctaConquistas": "Nossas Conquistas",
+    "ctaParticipate": "Quero Participar"
+  },
+  "about": {
+    "coachImage": "images/about/sbs.jpeg",
+    "keyPoints": [
+      "Treinos realizados no Centro de Lazer José Antonio Teixeira",
+      "Projeto 100% gratuito — sem nenhum custo para as famílias",
+      "Acompanhamento pedagógico e esportivo individual"
+    ],
+    "pillars": [
+      {
+        "title": "Inclusão Social",
+        "description": "Acesso gratuito a treinos, uniformes e materiais de qualidade para todos, unindo alunos de escolas públicas e particulares.",
+        "color": "#1D4ED8",
+        "bg": "#EFF6FF"
+      },
+      {
+        "title": "Saúde e Bem-Estar",
+        "description": "Combate ao sedentarismo e foco no desenvolvimento físico e mental de cada jovem atleta.",
+        "color": "#DC2626",
+        "bg": "#FEF2F2"
+      },
+      {
+        "title": "Valores e Ética",
+        "description": "Disciplina, trabalho em equipe e respeito dentro e fora de quadra formam cidadãos prontos para a vida.",
+        "color": "#F59E0B",
+        "bg": "#FFFBEB"
+      }
+    ]
+  },
+  "momentos": {
+    "images": [
+      { "image": "images/momentos/momento1.jpeg", "depth": 0.3, "position": { "top": "10%", "left": "10%" } },
+      { "image": "images/momentos/momento2.jpeg", "depth": 0.5, "position": { "top": "30%", "right": "15%" } },
+      { "image": "images/momentos/momento3.jpeg", "depth": 0.7, "position": { "bottom": "20%", "left": "20%" } },
+      { "image": "images/momentos/momento4.jpeg", "depth": 0.4, "position": { "top": "50%", "right": "10%" } }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2025 Projeto Vôlei Cidadão — Treinador Rafael. São Bento do Sapucaí, SP.",
+    "madeBy": "Feito com ❤️ pela comunidade"
+  },
+  "footerQuickLinks": [
+    { "label": "Início", "href": "#hero" },
+    { "label": "Sobre o Projeto", "href": "#sobre" },
+    { "label": "Conquistas", "href": "#conquistas" },
+    { "label": "Onde Treinamos", "href": "#local" },
+    { "label": "Como Ajudar", "href": "#apoie" }
+  ],
+  "whatsappMessages": {
+    "participate": "Olá! Quero fazer parte do Projeto Vôlei Cidadão!",
+    "support": "Olá, gostaria de apoiar o Projeto Vôlei Cidadão!"
+  }
+}
