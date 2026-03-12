@@ -1,5 +1,7 @@
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { MapPin, Clock, Phone, ChevronRight } from "lucide-react";
-import { config, getAssetUrl, getWhatsAppUrl } from "@/app/config";
+import { config, getWhatsAppUrl } from "@/app/config";
+import volleyballLottie from "@/assets/lottie/volleyball.lottie?url";
 
 export function LocationSection() {
   return (
@@ -20,37 +22,8 @@ export function LocationSection() {
 
         {/* Content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Info Card */}
+          {/* Coluna esquerda: Horários + Contato */}
           <div className="space-y-5">
-            {/* Location card */}
-            <div className="bg-[#EFF6FF] rounded-2xl p-5 md:p-6 border border-blue-100">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-[#1D4ED8] rounded-xl flex items-center justify-center flex-shrink-0">
-                  <MapPin size={22} className="text-white" />
-                </div>
-                <div>
-                  <h3 className="text-gray-900 mb-1" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '1rem' }}>
-                    {config.location.venueFull}
-                  </h3>
-                  <p className="text-[#1D4ED8]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.9rem' }}>
-                    {config.location.venueSubtitle}
-                  </p>
-                  <p className="text-gray-600 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>
-                    {config.location.addressFull}
-                  </p>
-                  <a
-                    href={config.location.mapUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 mt-2 text-[#1D4ED8] hover:text-[#1E40AF] transition-colors"
-                    style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}
-                  >
-                    Ver no mapa <ChevronRight size={14} />
-                  </a>
-                </div>
-              </div>
-            </div>
-
             {/* Schedule */}
             <div className="bg-gray-50 rounded-2xl p-5 md:p-6 border border-gray-100">
               <div className="flex items-center gap-3 mb-4">
@@ -112,33 +85,46 @@ export function LocationSection() {
             </div>
           </div>
 
-          {/* Map visual / Image */}
-          <div className="relative rounded-2xl overflow-hidden shadow-xl" style={{ minHeight: '380px' }}>
-            <img
-              src={getAssetUrl(config.location.image)}
-              alt={config.location.venueShort}
-              className="w-full h-full object-cover"
-              style={{ minHeight: '380px' }}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1D4ED8]/60 to-transparent" />
-
-            {/* Overlay card */}
-            <div className="absolute bottom-4 left-4 right-4">
-              <div className="bg-white rounded-xl p-4 shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-[#1D4ED8] rounded-full flex items-center justify-center flex-shrink-0">
-                    <MapPin size={16} className="text-white" />
-                  </div>
-                  <div>
-                    <div className="text-gray-900" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '0.9rem' }}>
-                      {config.location.venueShort}
-                    </div>
-                    <div className="text-gray-500" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem' }}>
-                      {config.location.address}, {config.brand.city}
-                    </div>
-                  </div>
+          {/* Coluna direita: Card do local + animação abaixo */}
+          <div className="flex flex-col gap-4 lg:gap-5">
+            {/* Location card */}
+            <div className="relative rounded-2xl p-5 md:p-6 border border-blue-100 overflow-hidden bg-[#EFF6FF]">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#1D4ED8]/15 to-transparent pointer-events-none" aria-hidden />
+              <div className="relative z-10 flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#1D4ED8] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin size={22} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-gray-900 mb-1" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '1rem' }}>
+                    {config.location.venueFull}
+                  </h3>
+                  <p className="text-[#1D4ED8]" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.9rem' }}>
+                    {config.location.venueSubtitle}
+                  </p>
+                  <p className="text-gray-600 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>
+                    {config.location.addressFull}
+                  </p>
+                  <a
+                    href={config.location.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 mt-2 text-[#1D4ED8] hover:text-[#1E40AF] transition-colors"
+                    style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}
+                  >
+                    Ver no mapa <ChevronRight size={14} />
+                  </a>
                 </div>
               </div>
+            </div>
+
+            {/* Animação vôlei — abaixo do card */}
+            <div className="rounded-2xl overflow-hidden flex items-center justify-center min-h-[140px] lg:min-h-[200px]" aria-hidden>
+              <DotLottieReact
+                src={volleyballLottie}
+                loop
+                autoplay
+                className="w-full h-full max-h-[160px] lg:max-h-[240px] object-contain"
+              />
             </div>
           </div>
         </div>
