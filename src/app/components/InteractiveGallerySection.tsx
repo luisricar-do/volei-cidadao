@@ -1,12 +1,25 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { Link } from "react-router";
 import { VolleyballBall } from "./VolleyballBall";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { config, getAssetUrl } from "@/app/config";
+import { CONQUISTAS_VER_MAIS_ANCHOR } from "@/app/routeAnchors";
 
-export function InteractiveGallerySection() {
+export interface InteractiveGallerySectionProps {
+  /** Quando definido, mostra só os N primeiros troféus na home (ex.: 5). */
+  maxItems?: number;
+}
+
+export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  
+  const achievements =
+    maxItems != null
+      ? config.achievements.slice(0, maxItems)
+      : config.achievements;
+  const showVerMais =
+    maxItems != null && config.achievements.length > maxItems;
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
@@ -39,10 +52,13 @@ export function InteractiveGallerySection() {
     [0, 1, 1, 0]
   );
 
+  const sectionMinHeight =
+    maxItems != null ? "min-h-[175vh]" : "min-h-[300vh]";
+
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[300vh] bg-gradient-to-br from-[#0F1F4E] to-[#1D4ED8] overflow-hidden"
+      className={`relative ${sectionMinHeight} bg-gradient-to-br from-[#0F1F4E] to-[#1D4ED8] overflow-hidden`}
       id="conquistas"
     >
       {/* Background pattern animado */}
@@ -76,7 +92,7 @@ export function InteractiveGallerySection() {
               🏆 CORREDOR DA FAMA
             </span>
           </motion.div>
-          
+
           <h2
             className="text-white mb-4"
             style={{
@@ -106,7 +122,7 @@ export function InteractiveGallerySection() {
           }}
         >
           <VolleyballBall scrollProgress={scrollYProgress.get()} />
-          
+
           {/* Rastro dourado */}
           <motion.div
             className="absolute inset-0 rounded-full"
@@ -121,17 +137,16 @@ export function InteractiveGallerySection() {
 
         {/* Conquistas - Corredor da Fama */}
         <div className="space-y-32 mt-20">
-          {config.achievements.map((achievement, index) => {
+          {achievements.map((achievement, index) => {
             const isEven = index % 2 === 0;
             const startProgress = 0.2 + (index * 0.15);
             const endProgress = startProgress + 0.1;
 
             return (
               <motion.div
-                key={index}
-                className={`flex flex-col md:flex-row items-center gap-8 ${
-                  isEven ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                key={`${achievement.title}-${index}`}
+                className={`flex flex-col md:flex-row items-center gap-8 ${isEven ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
                 style={{
                   opacity: useTransform(
                     scrollYProgress,
@@ -146,7 +161,7 @@ export function InteractiveGallerySection() {
                 }}
               >
                 {/* Imagem da conquista */}
-                <motion.div 
+                <motion.div
                   className="flex-1 relative group"
                   style={{
                     x: useTransform(
@@ -163,7 +178,7 @@ export function InteractiveGallerySection() {
                       className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
+
                     {/* Medalha flutuante */}
                     <motion.div
                       className="absolute top-4 right-4 text-7xl"
@@ -193,9 +208,8 @@ export function InteractiveGallerySection() {
                     ),
                   }}
                 >
-                  <div className={`p-8 bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-[#F59E0B]/30 ${
-                    isEven ? "md:text-right" : "md:text-left"
-                  } text-center`}>
+                  <div className={`p-8 bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-[#F59E0B]/30 ${isEven ? "md:text-right" : "md:text-left"
+                    } text-center`}>
                     <h3
                       className="text-white mb-4"
                       style={{
@@ -223,6 +237,21 @@ export function InteractiveGallerySection() {
             );
           })}
         </div>
+
+        {showVerMais && (
+          <div
+            id={CONQUISTAS_VER_MAIS_ANCHOR}
+            className="flex justify-center mt-16 pb-8 scroll-mt-24"
+          >
+            <Link
+              to="/conquistas"
+              className="inline-flex items-center gap-2 bg-[#F59E0B] hover:bg-[#D97706] text-white px-8 py-4 rounded-full transition-colors shadow-lg font-bold text-lg"
+              style={{ fontFamily: "Montserrat, sans-serif" }}
+            >
+              Ver todas as conquistas
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

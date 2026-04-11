@@ -27,6 +27,7 @@ export interface AppConfig {
     ctaText: string;
   };
   contact: {
+    waitlistFormUrl: string;
     whatsapp: string;
     whatsappDisplay: string;
     instagramUrl: string;

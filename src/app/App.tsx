@@ -1,16 +1,55 @@
+import { useLayoutEffect } from "react";
+import { Routes, Route, useLocation } from "react-router";
 import { Navbar } from "./components/Navbar";
-import { InteractiveHero } from "./components/InteractiveHero";
-import { AboutSection } from "./components/AboutSection";
-import { InteractiveStatsSection } from "./components/InteractiveStatsSection";
-import { InteractiveGallerySection } from "./components/InteractiveGallerySection";
-import { InteractiveAttackSection } from "./components/InteractiveAttackSection";
-import { ParallaxImages } from "./components/ParallaxImages";
-import { LocationSection } from "./components/LocationSection";
-import { InteractiveFooter } from "./components/InteractiveFooter";
+import { HomePage } from "./pages/HomePage";
+import { AchievementsPage } from "./pages/AchievementsPage";
+
+function ScrollOnRouteChange() {
+  const { pathname, hash } = useLocation();
+
+  useLayoutEffect(() => {
+    if (pathname === "/conquistas") {
+      window.scrollTo(0, 0);
+      return;
+    }
+
+    if (pathname === "/" && hash) {
+      const id = decodeURIComponent(hash.replace(/^#/, ""));
+      const scrollToAnchor = () => {
+        document.getElementById(id)?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      };
+      scrollToAnchor();
+      if (!document.getElementById(id)) {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(scrollToAnchor);
+        });
+      }
+      return;
+    }
+
+    if (pathname === "/" && !hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
+
+function HomeLayout() {
+  return (
+    <>
+      <Navbar />
+      <HomePage />
+    </>
+  );
+}
 
 export default function App() {
   return (
-    <div className="min-h-screen" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+    <div className="min-h-screen" style={{ fontFamily: "Montserrat, sans-serif" }}>
       <style>{`
         html {
           scroll-behavior: smooth;
@@ -18,7 +57,6 @@ export default function App() {
         * {
           box-sizing: border-box;
         }
-        /* Ocultar scrollbar mas manter funcionalidade */
         ::-webkit-scrollbar {
           width: 8px;
         }
@@ -33,32 +71,11 @@ export default function App() {
           background: #D97706;
         }
       `}</style>
-      <Navbar />
-      <main>
-        {/* Hero com bola de saque */}
-        <InteractiveHero />
-        
-        {/* Sobre o Projeto */}
-        <AboutSection />
-        
-        {/* Stats com movimento de manchete */}
-        <InteractiveStatsSection />
-        
-        {/* Galeria com movimento de levantamento */}
-        <InteractiveGallerySection />
-        
-        {/* Ataque - transição de cor dinâmica */}
-        <InteractiveAttackSection />
-        
-        {/* Parallax com imagens P&B ganhando cor */}
-        <ParallaxImages />
-        
-        {/* Localização */}
-        <LocationSection />
-        
-        {/* Footer com bola caindo no cesto */}
-        <InteractiveFooter />
-      </main>
+      <ScrollOnRouteChange />
+      <Routes>
+        <Route path="/" element={<HomeLayout />} />
+        <Route path="/conquistas" element={<AchievementsPage />} />
+      </Routes>
     </div>
   );
 }

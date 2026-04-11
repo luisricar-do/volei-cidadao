@@ -1,6 +1,9 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { Link } from "react-router";
 import { VolleyballBall } from "./VolleyballBall";
+
+const MotionLink = motion(Link);
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { config, getAssetUrl } from "@/app/config";
 
@@ -29,6 +32,7 @@ export function InteractiveHero() {
   return (
     <section
       ref={containerRef}
+      id="hero"
       className="relative min-h-[200vh] bg-gradient-to-b from-[#0F1F4E] via-[#1D4ED8] to-[#0F1F4E]"
     >
       {/* Background com desfoque - ginásio */}
@@ -106,8 +110,8 @@ export function InteractiveHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
           >
-            <motion.a
-              href="#conquistas"
+            <MotionLink
+              to="/#conquistas"
               className="bg-[#F59E0B] hover:bg-[#D97706] text-white px-8 py-4 rounded-full transition-all shadow-2xl"
               style={{
                 fontFamily: "Montserrat, sans-serif",
@@ -118,9 +122,11 @@ export function InteractiveHero() {
               whileTap={{ scale: 0.95 }}
             >
               🏆 {config.interactiveHero.ctaConquistas}
-            </motion.a>
+            </MotionLink>
             <motion.a
-              href="#apoie"
+              href={config.contact.waitlistFormUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-8 py-4 rounded-full transition-all border-2 border-white/40"
               style={{
                 fontFamily: "Montserrat, sans-serif",
@@ -151,7 +157,7 @@ export function InteractiveHero() {
               Role para começar
             </span>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M12 5v14M19 12l-7 7-7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </motion.div>
         </motion.div>

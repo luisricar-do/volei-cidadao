@@ -64,7 +64,7 @@ export function InteractiveAttackSection() {
         }}
       >
         <VolleyballBall scrollProgress={scrollYProgress.get()} />
-        
+
         {/* Rastro de movimento */}
         <motion.div
           className="absolute inset-0 rounded-full"
@@ -178,7 +178,9 @@ export function InteractiveAttackSection() {
 
           {/* CTA */}
           <motion.a
-            href="#apoie"
+            href={config.contact.waitlistFormUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block mt-12 bg-white text-[#0F1F4E] px-10 py-5 rounded-full shadow-2xl"
             style={{
               fontFamily: "Montserrat, sans-serif",
@@ -189,8 +191,8 @@ export function InteractiveAttackSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 1.1 }}
-            whileHover={{ 
-              scale: 1.05, 
+            whileHover={{
+              scale: 1.05,
               boxShadow: "0 25px 50px rgba(0,0,0,0.3)",
             }}
             whileTap={{ scale: 0.95 }}

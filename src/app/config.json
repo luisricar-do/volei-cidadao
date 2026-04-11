@@ -18,15 +18,31 @@
   },
   "nav": {
     "links": [
-      { "label": "Início", "href": "#hero" },
-      { "label": "Sobre", "href": "#sobre" },
-      { "label": "Conquistas", "href": "#conquistas" },
-      { "label": "Local", "href": "#local" },
-      { "label": "Apoie", "href": "#apoie" }
+      {
+        "label": "Início",
+        "href": "#hero"
+      },
+      {
+        "label": "Sobre",
+        "href": "#sobre"
+      },
+      {
+        "label": "Conquistas",
+        "href": "#conquistas"
+      },
+      {
+        "label": "Local",
+        "href": "#local"
+      },
+      {
+        "label": "Apoie",
+        "href": "#apoie"
+      }
     ],
     "ctaText": "Quero Participar"
   },
   "contact": {
+    "waitlistFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf2R5mAy0f9kUBTRujgJHUYky-uRJxPCz8jql-aK9hxIkQ_tw/viewform?usp=sharing",
     "whatsapp": "5512999999999",
     "whatsappDisplay": "(12) 99999-9999",
     "instagramUrl": "https://www.instagram.com/volei_cidadao_sbs",
@@ -62,6 +78,18 @@
       "image": "images/conquistas/open-sub13.jpeg"
     },
     {
+      "title": "Bicampeão Open TCC Taubaté 2024 e 2025",
+      "subtitle": "Open de Voleibol TCC — Taubaté, títulos em 2024 e 2025.",
+      "medal": "🏆🏆",
+      "image": "images/conquistas/open-tcc-taubate-2024-2025.png"
+    },
+    {
+      "title": "Bicampeão Torneio Santa Branca — SP 2024 e 2025",
+      "subtitle": "Torneio em Santa Branca — SP, títulos em 2024 e 2025.",
+      "medal": "🏆🏆",
+      "image": "images/conquistas/torneio-santa-branca-2024-2025.png"
+    },
+    {
       "title": "Copa CISMA 2025",
       "subtitle": "Campeões Sub-18",
       "medal": "🏆",
@@ -80,10 +108,40 @@
       "image": "images/conquistas/taca-ouro-mirim.jpeg"
     },
     {
-      "title": "União e Dedicação",
-      "subtitle": "Time Vôlei Cidadão",
-      "medal": "🤝",
-      "image": "images/conquistas/uniao.jpg"
+      "title": "Campeão Torneio Natércia — MG 2019",
+      "subtitle": "Voleibol masculino — Natércia (MG), 2019.",
+      "medal": "🏆",
+      "image": "images/conquistas/torneio-natercia-mg-2019.png"
+    },
+    {
+      "title": "Vice-campeões Copa Vale 2019",
+      "subtitle": "Copa Vale — 2019.",
+      "medal": "🥈",
+      "image": "images/conquistas/vice-copa-vale-2019.png"
+    },
+    {
+      "title": "Campeãs Torneio Tênis Clube 2021",
+      "subtitle": "Campeonato no Tênis Clube — 2021.",
+      "medal": "🏆",
+      "image": "images/conquistas/torneio-tenis-clube-2021.png"
+    },
+    {
+      "title": "Campeão Torneio Tênis Clube 2021",
+      "subtitle": "Categoria masculina — Tênis Clube, 2021.",
+      "medal": "🏆",
+      "image": "images/conquistas/torneio-tenis-clube-2021-masculino.png"
+    },
+    {
+      "title": "Campeãs Municipal de 2023",
+      "subtitle": "Campeonato Municipal — 2023.",
+      "medal": "🏆",
+      "image": "images/conquistas/campeas-municipal-2023.png"
+    },
+    {
+      "title": "Campeãs Regional São Bento 2024",
+      "subtitle": "Liga Regional de Voleibol — São Bento do Sapucaí, 2024.",
+      "medal": "🏆",
+      "image": "images/conquistas/regional-sao-bento-2024.png"
     }
   ],
   "achievementsBanner": {
@@ -91,9 +149,21 @@
     "subtitle": "4º lugar na Taça Ouro - Copa Amizade"
   },
   "schedule": [
-    { "age": "9 - 11 anos", "days": "Segunda e Quarta", "time": "14h00 - 15h30" },
-    { "age": "12 - 14 anos", "days": "Terça e Quinta", "time": "15h30 - 17h00" },
-    { "age": "15 - 17 anos", "days": "Segunda, Quarta e Sexta", "time": "17h00 - 18h30" }
+    {
+      "age": "9 - 11 anos",
+      "days": "Segunda e Quarta",
+      "time": "14h00 - 15h30"
+    },
+    {
+      "age": "12 - 14 anos",
+      "days": "Terça e Quinta",
+      "time": "15h30 - 17h00"
+    },
+    {
+      "age": "15 - 17 anos",
+      "days": "Segunda, Quarta e Sexta",
+      "time": "17h00 - 18h30"
+    }
   ],
   "hero": {
     "image": "images/hero.jpg",
@@ -104,9 +174,18 @@
     "ctaParticipate": "Quero Participar",
     "ctaStory": "Conheça nossa história",
     "quickStats": [
-      { "value": "150+", "label": "Alunos" },
-      { "value": "100%", "label": "Gratuito" },
-      { "value": "9-17", "label": "Anos" }
+      {
+        "value": "150+",
+        "label": "Alunos"
+      },
+      {
+        "value": "100%",
+        "label": "Gratuito"
+      },
+      {
+        "value": "9-17",
+        "label": "Anos"
+      }
     ]
   },
   "interactiveHero": {
@@ -146,10 +225,38 @@
   },
   "momentos": {
     "images": [
-      { "image": "images/momentos/momento1.jpeg", "depth": 0.3, "position": { "top": "10%", "left": "10%" } },
-      { "image": "images/momentos/momento2.jpeg", "depth": 0.5, "position": { "top": "30%", "right": "15%" } },
-      { "image": "images/momentos/momento3.jpeg", "depth": 0.7, "position": { "bottom": "20%", "left": "20%" } },
-      { "image": "images/momentos/momento4.jpeg", "depth": 0.4, "position": { "top": "50%", "right": "10%" } }
+      {
+        "image": "images/momentos/momento1.jpeg",
+        "depth": 0.3,
+        "position": {
+          "top": "10%",
+          "left": "10%"
+        }
+      },
+      {
+        "image": "images/momentos/momento2.jpeg",
+        "depth": 0.5,
+        "position": {
+          "top": "30%",
+          "right": "15%"
+        }
+      },
+      {
+        "image": "images/momentos/momento3.jpeg",
+        "depth": 0.7,
+        "position": {
+          "bottom": "20%",
+          "left": "20%"
+        }
+      },
+      {
+        "image": "images/momentos/momento4.jpeg",
+        "depth": 0.4,
+        "position": {
+          "top": "50%",
+          "right": "10%"
+        }
+      }
     ]
   },
   "footer": {
@@ -157,11 +264,26 @@
     "madeBy": "Feito com ❤️ pela comunidade"
   },
   "footerQuickLinks": [
-    { "label": "Início", "href": "#hero" },
-    { "label": "Sobre o Projeto", "href": "#sobre" },
-    { "label": "Conquistas", "href": "#conquistas" },
-    { "label": "Onde Treinamos", "href": "#local" },
-    { "label": "Como Ajudar", "href": "#apoie" }
+    {
+      "label": "Início",
+      "href": "#hero"
+    },
+    {
+      "label": "Sobre o Projeto",
+      "href": "#sobre"
+    },
+    {
+      "label": "Conquistas",
+      "href": "#conquistas"
+    },
+    {
+      "label": "Onde Treinamos",
+      "href": "#local"
+    },
+    {
+      "label": "Como Ajudar",
+      "href": "#apoie"
+    }
   ],
   "whatsappMessages": {
     "participate": "Olá! Quero fazer parte do Projeto Vôlei Cidadão!",

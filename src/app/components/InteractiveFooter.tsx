@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { MapPin, Phone, Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 import { VolleyballBall } from "./VolleyballBall";
-import { config, getWhatsAppUrl } from "@/app/config";
+import { config } from "@/app/config";
 
 export function InteractiveFooter() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -100,11 +100,15 @@ export function InteractiveFooter() {
             Junte-se a {config.stats.studentsDisplay} jovens que estão transformando suas vidas através do vôlei.
             <br />
             Treinamentos {config.stats.freeLabel} gratuitos
+            <br />
+            <span className="text-[#0F1F4E]">
+              Interessado em participar? Preencha a lista de espera (9 a 11 anos) no formulário.
+            </span>
           </p>
 
           {/* Botão pulsante */}
           <motion.a
-            href={getWhatsAppUrl(config.whatsappMessages.participate)}
+            href={config.contact.waitlistFormUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-gradient-to-r from-[#1D4ED8] to-[#0F1F4E] text-white px-12 py-6 rounded-full shadow-2xl"
@@ -113,7 +117,7 @@ export function InteractiveFooter() {
               fontWeight: 800,
               fontSize: "1.3rem",
             }}
-            whileHover={{ 
+            whileHover={{
               scale: 1.05,
               boxShadow: "0 30px 60px rgba(29, 78, 216, 0.4)",
             }}
@@ -130,8 +134,8 @@ export function InteractiveFooter() {
               repeat: Infinity,
             }}
           >
-            <span className="text-2xl">🏐</span>
-            QUERO FAZER PARTE DO TIME
+            <span className="text-2xl">📋</span>
+            Lista de espera — inscreva-se
           </motion.a>
         </motion.div>
 
@@ -148,9 +152,9 @@ export function InteractiveFooter() {
                 transition={{ delay: 0.2 }}
               >
                 <div className="flex items-center gap-3 justify-center sm:justify-start mb-4">
-                  <img 
-                    src={logo} 
-                    alt={config.brand.name} 
+                  <img
+                    src={logo}
+                    alt={config.brand.name}
                     className="w-14 h-14 object-contain"
                   />
                   <div>

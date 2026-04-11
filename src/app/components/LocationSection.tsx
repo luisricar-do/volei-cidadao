@@ -1,6 +1,6 @@
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-import { MapPin, Clock, Phone, ChevronRight } from "lucide-react";
-import { config, getWhatsAppUrl } from "@/app/config";
+import { MapPin, Clock, ChevronRight } from "lucide-react";
+import { config } from "@/app/config";
 import volleyballLottie from "@/assets/lottie/volleyball.lottie?url";
 
 export function LocationSection() {
@@ -22,7 +22,7 @@ export function LocationSection() {
 
         {/* Content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* Coluna esquerda: Horários + Contato */}
+          {/* Coluna esquerda: Horários */}
           <div className="space-y-5">
             {/* Schedule */}
             <div className="bg-gray-50 rounded-2xl p-5 md:p-6 border border-gray-100">
@@ -57,31 +57,8 @@ export function LocationSection() {
                 ))}
               </div>
               <p className="text-gray-400 mt-3" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.8rem' }}>
-                * Horários sujeitos a alteração. Confirme pelo WhatsApp.
+                * Horários sujeitos a alteração.
               </p>
-            </div>
-
-            {/* Contact */}
-            <div className="bg-[#1D4ED8] rounded-2xl p-5 md:p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Phone size={20} className="text-[#FCD34D]" />
-                <span className="text-white" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}>
-                  Fale com o {config.brand.coachName}
-                </span>
-              </div>
-              <a
-                href={getWhatsAppUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-3 w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1EBE57] active:scale-95 text-white px-5 py-3 rounded-xl transition-all"
-                style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.95rem' }}
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                  <path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.555 4.122 1.524 5.855L0 24l6.29-1.501A11.947 11.947 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.003-1.367l-.36-.213-3.73.89.937-3.634-.235-.374A9.818 9.818 0 1112 21.818z"/>
-                </svg>
-                Enviar mensagem no WhatsApp
-              </a>
             </div>
           </div>
 
