@@ -37,8 +37,8 @@ jobs:
 
       - name: Build
         env:
-          # Base path para projeto em user.github.io/repo-name (altere para '/' com domínio customizado)
-          BASE_PATH: '/${{ github.event.repository.name }}/'
+          # Domínio customizado usa assets na raiz.
+          BASE_PATH: '/'
         run: pnpm run build
 
       - name: Upload artifact

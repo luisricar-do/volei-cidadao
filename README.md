@@ -53,8 +53,8 @@ A saída fica em `dist/`.
 O projeto está configurado para **GitHub Pages** via GitHub Actions:
 
 - Push na branch `main` dispara o workflow **Deploy to GitHub Pages**
-- O build usa `BASE_PATH` para o repositório (ex.: `/<repo-name>/`)
-- Para domínio customizado, ajuste `BASE_PATH` em `.github/workflows/deploy-pages.yml`
+- O domínio customizado está configurado como `http://voleicidadao.com.br`
+- O build usa `BASE_PATH=/` e publica o `public/CNAME` no artifact
 
 ## Estrutura principal
 
