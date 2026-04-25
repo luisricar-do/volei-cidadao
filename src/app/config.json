@@ -64,6 +64,8 @@
   "stats": {
     "totalStudents": 150,
     "studentsDisplay": "150+",
+    "alumniDisplay": "400+",
+    "foundedYear": 2014,
     "ageRange": "9-17",
     "freeLabel": "100%",
     "gratuito": "Gratuito",
@@ -72,76 +74,156 @@
   },
   "achievements": [
     {
-      "title": "Bicampeãs! 🏆🏆",
-      "subtitle": "Sub13 — II Open de vôlei Sub13 do TCC: 4 jogos, 4 vitórias.",
+      "title": "Campeãs",
+      "event": "Copa Extrema de Vôlei 2026",
+      "category": "Sub14",
+      "sortDate": "2026-04-20",
       "medal": "🏆",
+      "image": "images/conquistas/copa-extrema-volei-2026-sub14.png"
+    },
+    {
+      "title": "Campeãs",
+      "event": "8° Copa Pouso Alegre — MG, 2026",
+      "category": "Sub13",
+      "sortDate": "2026-04-10",
+      "medal": "🏆",
+      "image": "images/conquistas/copa-pouso-alegre-8-2026-sub13.png"
+    },
+    {
+      "title": "Campeãs",
+      "event": "Torneio do Clube Jequitibá, Caçapava — 2026",
+      "category": "Sub13",
+      "sortDate": "2026-04-01",
+      "medal": "🏆",
+      "image": "images/conquistas/torneio-jequitiba-cacapava-2026-sub13.png"
+    },
+    {
+      "title": "Vice-campeões",
+      "event": "Torneio do Clube Jequitibá, Caçapava — 2026",
+      "category": "Infantil",
+      "sortDate": "2026-03-28",
+      "medal": "🥈",
+      "image": "images/conquistas/vice-jequitiba-cacapava-2026-infantil.png"
+    },
+    {
+      "title": "Vice-campeões",
+      "event": "I Baú Festival 2026",
+      "category": "Sub13",
+      "sortDate": "2026-03-20",
+      "medal": "🥈",
+      "image": "images/conquistas/vice-bau-festival-2026-sub13.png"
+    },
+    {
+      "title": "Bicampeãs",
+      "event": "Open de Vôlei TCC — Taubaté",
+      "category": "Sub13, 2025",
+      "sortDate": "2025-12-20",
+      "medal": "🏆🏆",
       "image": "images/conquistas/open-sub13.jpeg"
     },
     {
-      "title": "Bicampeão Open TCC Taubaté 2024 e 2025",
-      "subtitle": "Open de Voleibol TCC — Taubaté, títulos em 2024 e 2025.",
-      "medal": "🏆🏆",
-      "image": "images/conquistas/open-tcc-taubate-2024-2025.png"
-    },
-    {
-      "title": "Bicampeão Torneio Santa Branca — SP 2024 e 2025",
-      "subtitle": "Torneio em Santa Branca — SP, títulos em 2024 e 2025.",
+      "title": "Bicampeãs",
+      "event": "Torneio de Santa Branca — SP, títulos 2024 e 2025",
+      "category": "—",
+      "sortDate": "2025-12-01",
       "medal": "🏆🏆",
       "image": "images/conquistas/torneio-santa-branca-2024-2025.png"
     },
     {
-      "title": "Copa CISMA 2025",
-      "subtitle": "Campeões Sub-18",
+      "title": "Vice-campeãs",
+      "event": "Copa Amizade, edição especial, Acampamento Paiol Grande",
+      "category": "Infantil",
+      "sortDate": "2025-11-20",
+      "medal": "🥈",
+      "image": "images/conquistas/vice-copa-amizade-paiol-grande-infantil.png"
+    },
+    {
+      "title": "Campeões",
+      "event": "Copa CISMA, 2025",
+      "category": "Sub-18",
+      "sortDate": "2025-10-15",
       "medal": "🏆",
       "image": "images/conquistas/copa-cisma.jpeg"
     },
     {
-      "title": "Taça Ouro",
-      "subtitle": "4º Lugar - Copa Amizade",
+      "title": "Vice-campeãs",
+      "event": "São Sebastião — SP, 2025",
+      "category": "Infantil",
+      "sortDate": "2025-09-01",
+      "medal": "🥈",
+      "image": "images/conquistas/vice-campeas-infantil-sao-sebastiao-2025.png"
+    },
+    {
+      "title": "4º lugar",
+      "event": "Copa Amizade, Caçapava — 2025",
+      "category": "Infanto",
+      "sortDate": "2025-08-18",
       "medal": "🥉",
       "image": "images/conquistas/taca-ouro.jpeg"
     },
     {
-      "title": "Vice-campeãs da Taça Ouro",
-      "subtitle": "Categoria Mirim",
+      "title": "Vice-campeãs",
+      "event": "Copa Amizade, Caçapava — 2025 (Taça Ouro)",
+      "category": "Mirim",
+      "sortDate": "2025-08-15",
       "medal": "🥈",
       "image": "images/conquistas/taca-ouro-mirim.jpeg"
     },
     {
-      "title": "Campeão Torneio Natércia — MG 2019",
-      "subtitle": "Voleibol masculino — Natércia (MG), 2019.",
+      "title": "Campeãs",
+      "event": "Open de Vôlei TCC — Taubaté, título 2024",
+      "category": "Sub13",
+      "sortDate": "2024-11-15",
       "medal": "🏆",
-      "image": "images/conquistas/torneio-natercia-mg-2019.png"
+      "image": "images/conquistas/open-tcc-taubate-2024-2025.png"
     },
     {
-      "title": "Vice-campeões Copa Vale 2019",
-      "subtitle": "Copa Vale — 2019.",
-      "medal": "🥈",
-      "image": "images/conquistas/vice-copa-vale-2019.png"
-    },
-    {
-      "title": "Campeãs Torneio Tênis Clube 2021",
-      "subtitle": "Campeonato no Tênis Clube — 2021.",
+      "title": "Campeãs",
+      "event": "Liga Regional de Voleibol — São Bento do Sapucaí, 2024",
+      "category": "—",
+      "sortDate": "2024-10-20",
       "medal": "🏆",
-      "image": "images/conquistas/torneio-tenis-clube-2021.png"
+      "image": "images/conquistas/regional-sao-bento-2024.png"
     },
     {
-      "title": "Campeão Torneio Tênis Clube 2021",
-      "subtitle": "Categoria masculina — Tênis Clube, 2021.",
-      "medal": "🏆",
-      "image": "images/conquistas/torneio-tenis-clube-2021-masculino.png"
-    },
-    {
-      "title": "Campeãs Municipal de 2023",
-      "subtitle": "Campeonato Municipal — 2023.",
+      "title": "Campeãs",
+      "event": "Campeonato Municipal",
+      "category": "2023",
+      "sortDate": "2023-11-01",
       "medal": "🏆",
       "image": "images/conquistas/campeas-municipal-2023.png"
     },
     {
-      "title": "Campeãs Regional São Bento 2024",
-      "subtitle": "Liga Regional de Voleibol — São Bento do Sapucaí, 2024.",
+      "title": "Campeãs",
+      "event": "Campeonato no Tênis Clube, 2021",
+      "category": "Feminino",
+      "sortDate": "2021-09-01",
       "medal": "🏆",
-      "image": "images/conquistas/regional-sao-bento-2024.png"
+      "image": "images/conquistas/torneio-tenis-clube-2021.png"
+    },
+    {
+      "title": "Campeão",
+      "event": "Campeonato no Tênis Clube, 2021",
+      "category": "Masculino",
+      "sortDate": "2021-08-15",
+      "medal": "🏆",
+      "image": "images/conquistas/torneio-tenis-clube-2021-masculino.png"
+    },
+    {
+      "title": "Vice-campeões",
+      "event": "Copa Vale, 2019",
+      "category": "—",
+      "sortDate": "2019-11-01",
+      "medal": "🥈",
+      "image": "images/conquistas/vice-copa-vale-2019.png"
+    },
+    {
+      "title": "Campeão",
+      "event": "Torneio de Natércia — MG, 2019",
+      "category": "Masculino",
+      "sortDate": "2019-10-20",
+      "medal": "🏆",
+      "image": "images/conquistas/torneio-natercia-mg-2019.png"
     }
   ],
   "achievementsBanner": {

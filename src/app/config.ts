@@ -4,6 +4,16 @@
  */
 import configJson from "./config.json";
 
+/** Uma linha: colocação; outra: evento; outra: categoria. `sortDate` é só para ordem (não exibido). */
+export interface Achievement {
+  title: string;
+  event: string;
+  category: string;
+  sortDate: string;
+  medal: string;
+  image: string;
+}
+
 export interface AppConfig {
   brand: {
     name: string;
@@ -49,18 +59,17 @@ export interface AppConfig {
   stats: {
     totalStudents: number;
     studentsDisplay: string;
+    /** Pessoas que já passaram pelo projeto (cumulative). */
+    alumniDisplay: string;
+    /** Ano de fundação do Vôlei Cidadão. */
+    foundedYear: number;
     ageRange: string;
     freeLabel: string;
     gratuito: string;
     venueCount: number;
     titles2025: number;
   };
-  achievements: Array<{
-    title: string;
-    subtitle: string;
-    medal: string;
-    image: string;
-  }>;
+  achievements: Achievement[];
   achievementsBanner: { title: string; subtitle: string };
   schedule: Array<{ age: string; days: string; time: string }>;
   hero: {
@@ -102,7 +111,26 @@ export interface AppConfig {
   whatsappMessages: { participate: string; support: string };
 }
 
-export const config = configJson as AppConfig;
+function sortAchievementsByDate(achievements: Achievement[]): Achievement[] {
+  return [...achievements].sort((a, b) => b.sortDate.localeCompare(a.sortDate));
+}
+
+const raw = configJson as AppConfig;
+export const config: AppConfig = {
+  ...raw,
+  achievements: sortAchievementsByDate(raw.achievements as Achievement[]),
+};
+
+/** Título acessível para a imagem da conquista. */
+export function getAchievementImageAlt(achievement: Achievement): string {
+  return `${achievement.title} — ${achievement.event}`;
+}
+
+/** Exibe a 3ª linha (categoria) quando houver texto útil. */
+export function hasAchievementCategory(category: string): boolean {
+  const t = category.trim();
+  return t.length > 0 && t !== "—";
+}
 
 /** URL do WhatsApp com número do config */
 export function getWhatsAppUrl(message?: string): string {

@@ -30,7 +30,7 @@ export function InteractiveAttackSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-[120vh] overflow-hidden"
+      className="relative flex min-h-[120vh] flex-col overflow-hidden"
     >
       {/* Fundo com transição de cor */}
       <motion.div
@@ -78,15 +78,15 @@ export function InteractiveAttackSection() {
       </motion.div>
 
       {/* Conteúdo - revelado pelo ataque */}
-      <div className="relative h-full flex items-center justify-center px-4">
+      <div className="relative flex min-h-0 w-full flex-1 items-center justify-center px-4 py-8 md:py-12">
         <motion.div
-          className="text-center max-w-4xl z-40"
+          className="z-40 max-w-4xl origin-center text-center"
           style={{
             opacity: textOpacity,
             scale: textScale,
           }}
         >
-          {/* Troféu animado */}
+          {/* Ícone de impacto */}
           <motion.div
             className="text-8xl md:text-9xl mb-6"
             initial={{ scale: 0, rotate: -180 }}
@@ -94,7 +94,7 @@ export function InteractiveAttackSection() {
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
           >
-            🏆
+            👥
           </motion.div>
 
           {/* Título principal */}
@@ -112,8 +112,8 @@ export function InteractiveAttackSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
           >
-            CAMPEÕES<br />
-            <span className="text-[#0F1F4E]">{config.achievements[0].title.toUpperCase()}</span>
+            O IMPACTO DO<br />
+            <span className="text-[#0F1F4E]">PROJETO</span>
           </motion.h2>
 
           {/* Subtítulo */}
@@ -129,10 +129,10 @@ export function InteractiveAttackSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
           >
-            Categoria Sub-18 • Invictos na final
+            Alunos ativos, histórico de quem passou e anos de existência — desde {config.stats.foundedYear}
           </motion.p>
 
-          {/* Stats da conquista */}
+          {/* Números de impacto */}
           <motion.div
             className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
@@ -141,9 +141,20 @@ export function InteractiveAttackSection() {
             transition={{ delay: 0.9 }}
           >
             {[
-              { number: "15", label: "Jogos" },
-              { number: "0", label: "Derrotas" },
-              { number: "1º", label: "Lugar" },
+              {
+                number: config.stats.studentsDisplay,
+                label: "Alunos ativos",
+              },
+              {
+                number: config.stats.alumniDisplay,
+                label: "Já passaram",
+              },
+              {
+                number: String(
+                  new Date().getFullYear() - config.stats.foundedYear
+                ),
+                label: "Anos de história",
+              },
             ].map((stat, index) => (
               <motion.div
                 key={index}

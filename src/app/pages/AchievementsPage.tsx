@@ -3,7 +3,7 @@ import { CONQUISTAS_VER_MAIS_ANCHOR } from "../routeAnchors";
 import { Navbar } from "../components/Navbar";
 import { InteractiveFooter } from "../components/InteractiveFooter";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { config, getAssetUrl } from "@/app/config";
+import { config, getAchievementImageAlt, getAssetUrl, hasAchievementCategory } from "@/app/config";
 
 export function AchievementsPage() {
   return (
@@ -31,12 +31,12 @@ export function AchievementsPage() {
 
           <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 list-none p-0 m-0">
             {config.achievements.map((achievement, index) => (
-              <li key={`${achievement.title}-${index}`}>
+              <li key={`${achievement.sortDate}-${index}`}>
                 <article className="h-full rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm border-2 border-[#F59E0B]/30 shadow-xl flex flex-col">
                   <div className="relative aspect-[4/3] overflow-hidden group">
                     <ImageWithFallback
                       src={getAssetUrl(achievement.image)}
-                      alt={achievement.title}
+                      alt={getAchievementImageAlt(achievement)}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
@@ -45,12 +45,17 @@ export function AchievementsPage() {
                     </span>
                   </div>
                   <div className="p-5 md:p-6 flex flex-col flex-1 text-center">
-                    <h2 className="text-white font-black text-lg md:text-xl leading-snug mb-2">
+                    <h2 className="text-white font-black text-lg md:text-xl leading-snug mb-1.5">
                       {achievement.title}
                     </h2>
-                    <p className="text-[#F59E0B] font-bold text-sm md:text-base flex-1">
-                      {achievement.subtitle}
+                    <p className="text-[#F59E0B] font-bold text-sm md:text-base">
+                      {achievement.event}
                     </p>
+                    {hasAchievementCategory(achievement.category) && (
+                      <p className="text-[#F59E0B]/90 font-semibold text-sm md:text-base mt-1.5 flex-1">
+                        {achievement.category}
+                      </p>
+                    )}
                   </div>
                 </article>
               </li>

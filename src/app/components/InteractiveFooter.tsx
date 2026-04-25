@@ -1,9 +1,9 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { MapPin, Phone, Instagram, Facebook } from "lucide-react";
+import { MapPin, Instagram, Facebook } from "lucide-react";
 import logo from "@/assets/logo.jpeg";
 import { VolleyballBall } from "./VolleyballBall";
-import { config } from "@/app/config";
+import { config, hasAchievementCategory } from "@/app/config";
 
 export function InteractiveFooter() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -214,12 +214,6 @@ export function InteractiveFooter() {
                     </span>
                   </div>
                   <div className="flex items-center gap-3 justify-center sm:justify-start">
-                    <Phone size={18} className="text-[#F59E0B] flex-shrink-0" />
-                    <a href={`tel:+55${config.contact.whatsapp}`} className="text-gray-400 hover:text-white transition-colors" style={{ fontFamily: "Inter, sans-serif", fontSize: "0.9rem" }}>
-                      {config.contact.whatsappDisplay}
-                    </a>
-                  </div>
-                  <div className="flex items-center gap-3 justify-center sm:justify-start">
                     <Instagram size={18} className="text-[#F59E0B] flex-shrink-0" />
                     <a
                       href={config.contact.instagramUrl}
@@ -243,29 +237,39 @@ export function InteractiveFooter() {
                 transition={{ delay: 0.4 }}
               >
                 <h4 className="text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 800, fontSize: "1rem" }}>
-                  CONQUISTAS 2025
+                  Conquistas recentes
                 </h4>
                 <div className="space-y-3">
                   <div className="flex items-start gap-2 justify-center sm:justify-start">
-                    <span className="text-2xl">🏆</span>
+                    <span className="text-2xl" aria-hidden>{config.achievements[0].medal}</span>
                     <div>
                       <div className="text-white" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.9rem" }}>
                         {config.achievements[0].title}
                       </div>
                       <div className="text-gray-400" style={{ fontFamily: "Inter, sans-serif", fontSize: "0.8rem" }}>
-                        {config.achievements[0].subtitle}
+                        {config.achievements[0].event}
                       </div>
+                      {hasAchievementCategory(config.achievements[0].category) && (
+                        <div className="text-gray-500" style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem" }}>
+                          {config.achievements[0].category}
+                        </div>
+                      )}
                     </div>
                   </div>
                   <div className="flex items-start gap-2 justify-center sm:justify-start">
-                    <span className="text-2xl">{config.achievements[1].medal}</span>
+                    <span className="text-2xl" aria-hidden>{config.achievements[1].medal}</span>
                     <div>
                       <div className="text-white" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, fontSize: "0.9rem" }}>
                         {config.achievements[1].title}
                       </div>
                       <div className="text-gray-400" style={{ fontFamily: "Inter, sans-serif", fontSize: "0.8rem" }}>
-                        {config.achievements[1].subtitle}
+                        {config.achievements[1].event}
                       </div>
+                      {hasAchievementCategory(config.achievements[1].category) && (
+                        <div className="text-gray-500" style={{ fontFamily: "Inter, sans-serif", fontSize: "0.75rem" }}>
+                          {config.achievements[1].category}
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>

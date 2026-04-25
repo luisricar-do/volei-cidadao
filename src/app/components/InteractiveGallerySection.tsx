@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router";
 import { VolleyballBall } from "./VolleyballBall";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { config, getAssetUrl } from "@/app/config";
+import { config, getAchievementImageAlt, getAssetUrl, hasAchievementCategory } from "@/app/config";
 import { CONQUISTAS_VER_MAIS_ANCHOR } from "@/app/routeAnchors";
 
 export interface InteractiveGallerySectionProps {
@@ -144,7 +144,7 @@ export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectio
 
             return (
               <motion.div
-                key={`${achievement.title}-${index}`}
+                key={`${achievement.sortDate}-${index}`}
                 className={`flex flex-col md:flex-row items-center gap-8 ${isEven ? "md:flex-row" : "md:flex-row-reverse"
                   }`}
                 style={{
@@ -174,7 +174,7 @@ export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectio
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                     <ImageWithFallback
                       src={getAssetUrl(achievement.image)}
-                      alt={achievement.title}
+                      alt={getAchievementImageAlt(achievement)}
                       className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -211,7 +211,7 @@ export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectio
                   <div className={`p-8 bg-white/10 backdrop-blur-sm rounded-2xl border-2 border-[#F59E0B]/30 ${isEven ? "md:text-right" : "md:text-left"
                     } text-center`}>
                     <h3
-                      className="text-white mb-4"
+                      className="text-white mb-2"
                       style={{
                         fontFamily: "Montserrat, sans-serif",
                         fontWeight: 900,
@@ -222,15 +222,27 @@ export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectio
                       {achievement.title}
                     </h3>
                     <p
-                      className="text-[#F59E0B]"
+                      className="text-[#F59E0B] mb-1.5"
                       style={{
                         fontFamily: "Montserrat, sans-serif",
                         fontWeight: 700,
                         fontSize: "1.2rem",
                       }}
                     >
-                      {achievement.subtitle}
+                      {achievement.event}
                     </p>
+                    {hasAchievementCategory(achievement.category) && (
+                      <p
+                        className="text-[#F59E0B]/90"
+                        style={{
+                          fontFamily: "Montserrat, sans-serif",
+                          fontWeight: 600,
+                          fontSize: "1.05rem",
+                        }}
+                      >
+                        {achievement.category}
+                      </p>
+                    )}
                   </div>
                 </motion.div>
               </motion.div>
