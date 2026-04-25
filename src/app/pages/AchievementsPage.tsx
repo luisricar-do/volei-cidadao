@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router";
-import { CONQUISTAS_VER_MAIS_ANCHOR } from "../routeAnchors";
+import { useAchievementLightbox } from "@/app/hooks/useAchievementLightbox";
+import { CONQUISTAS_VER_MAIS_ANCHOR } from "@/app/routeAnchors";
 import { ImageLightbox } from "../components/ImageLightbox";
 import { Navbar } from "../components/Navbar";
 import { InteractiveFooter } from "../components/InteractiveFooter";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import {
-  type Achievement,
   config,
   getAchievementImageAlt,
   getAssetUrl,
@@ -14,7 +13,8 @@ import {
 } from "@/app/config";
 
 export function AchievementsPage() {
-  const [lightboxItem, setLightboxItem] = useState<Achievement | null>(null);
+  const { item: lightboxItem, open: lightboxOpen, openLightbox, onOpenChange: onLightboxOpenChange } =
+    useAchievementLightbox();
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "Montserrat, sans-serif" }}>
       <Navbar />
@@ -45,7 +45,7 @@ export function AchievementsPage() {
                   <button
                     type="button"
                     className="relative m-0 w-full p-0 border-0 bg-transparent text-left cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F59E0B] rounded-t-2xl"
-                    onClick={() => setLightboxItem(achievement)}
+                    onClick={() => openLightbox(achievement)}
                     aria-label={`Ampliar imagem da conquista: ${achievement.title}`}
                     title="Clique para ampliar"
                   >
@@ -81,10 +81,8 @@ export function AchievementsPage() {
 
           {lightboxItem && (
             <ImageLightbox
-              open
-              onOpenChange={(o) => {
-                if (!o) setLightboxItem(null);
-              }}
+              open={lightboxOpen}
+              onOpenChange={onLightboxOpenChange}
               src={getAssetUrl(lightboxItem.image)}
               alt={getAchievementImageAlt(lightboxItem)}
               title={lightboxItem.title}

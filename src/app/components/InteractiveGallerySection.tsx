@@ -1,11 +1,11 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router";
+import { useAchievementLightbox } from "@/app/hooks/useAchievementLightbox";
 import { ImageLightbox } from "./ImageLightbox";
 import { VolleyballBall } from "./VolleyballBall";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import {
-  type Achievement,
   config,
   getAchievementImageAlt,
   getAssetUrl,
@@ -20,7 +20,8 @@ export interface InteractiveGallerySectionProps {
 
 export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [lightboxItem, setLightboxItem] = useState<Achievement | null>(null);
+  const { item: lightboxItem, open: lightboxOpen, openLightbox, onOpenChange: onLightboxOpenChange } =
+    useAchievementLightbox();
   const achievements =
     maxItems != null
       ? config.achievements.slice(0, maxItems)
@@ -182,7 +183,7 @@ export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectio
                   <button
                     type="button"
                     className="relative w-full m-0 p-0 border-0 bg-transparent cursor-pointer text-left rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F59E0B] focus-visible:rounded-2xl"
-                    onClick={() => setLightboxItem(achievement)}
+                    onClick={() => openLightbox(achievement)}
                     aria-label={`Ampliar imagem da conquista: ${achievement.title}`}
                     title="Clique para ampliar"
                   >
@@ -284,10 +285,8 @@ export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectio
 
       {lightboxItem && (
         <ImageLightbox
-          open
-          onOpenChange={(o) => {
-            if (!o) setLightboxItem(null);
-          }}
+          open={lightboxOpen}
+          onOpenChange={onLightboxOpenChange}
           src={getAssetUrl(lightboxItem.image)}
           alt={getAchievementImageAlt(lightboxItem)}
           title={lightboxItem.title}
