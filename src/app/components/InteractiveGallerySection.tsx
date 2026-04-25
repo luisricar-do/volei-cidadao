@@ -1,9 +1,16 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Link } from "react-router";
+import { ImageLightbox } from "./ImageLightbox";
 import { VolleyballBall } from "./VolleyballBall";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { config, getAchievementImageAlt, getAssetUrl, hasAchievementCategory } from "@/app/config";
+import {
+  type Achievement,
+  config,
+  getAchievementImageAlt,
+  getAssetUrl,
+  hasAchievementCategory,
+} from "@/app/config";
 import { CONQUISTAS_VER_MAIS_ANCHOR } from "@/app/routeAnchors";
 
 export interface InteractiveGallerySectionProps {
@@ -13,6 +20,7 @@ export interface InteractiveGallerySectionProps {
 
 export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectionProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [lightboxItem, setLightboxItem] = useState<Achievement | null>(null);
   const achievements =
     maxItems != null
       ? config.achievements.slice(0, maxItems)
@@ -171,30 +179,38 @@ export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectio
                     ),
                   }}
                 >
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                    <ImageWithFallback
-                      src={getAssetUrl(achievement.image)}
-                      alt={getAchievementImageAlt(achievement)}
-                      className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <button
+                    type="button"
+                    className="relative w-full m-0 p-0 border-0 bg-transparent cursor-pointer text-left rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F59E0B] focus-visible:rounded-2xl"
+                    onClick={() => setLightboxItem(achievement)}
+                    aria-label={`Ampliar imagem da conquista: ${achievement.title}`}
+                    title="Clique para ampliar"
+                  >
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                      <ImageWithFallback
+                        src={getAssetUrl(achievement.image)}
+                        alt={getAchievementImageAlt(achievement)}
+                        className="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-                    {/* Medalha flutuante */}
-                    <motion.div
-                      className="absolute top-4 right-4 text-7xl"
-                      animate={{
-                        y: [0, -10, 0],
-                        rotate: [0, 5, 0, -5, 0],
-                      }}
-                      transition={{
-                        duration: 3,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                    >
-                      {achievement.medal}
-                    </motion.div>
-                  </div>
+                      {/* Medalha flutuante */}
+                      <motion.div
+                        className="absolute top-4 right-4 text-7xl pointer-events-none"
+                        animate={{
+                          y: [0, -10, 0],
+                          rotate: [0, 5, 0, -5, 0],
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                        }}
+                      >
+                        {achievement.medal}
+                      </motion.div>
+                    </div>
+                  </button>
                 </motion.div>
 
                 {/* Descrição da conquista */}
@@ -265,6 +281,18 @@ export function InteractiveGallerySection({ maxItems }: InteractiveGallerySectio
           </div>
         )}
       </div>
+
+      {lightboxItem && (
+        <ImageLightbox
+          open
+          onOpenChange={(o) => {
+            if (!o) setLightboxItem(null);
+          }}
+          src={getAssetUrl(lightboxItem.image)}
+          alt={getAchievementImageAlt(lightboxItem)}
+          title={lightboxItem.title}
+        />
+      )}
     </section>
   );
 }

@@ -1,11 +1,20 @@
+import { useState } from "react";
 import { Link } from "react-router";
 import { CONQUISTAS_VER_MAIS_ANCHOR } from "../routeAnchors";
+import { ImageLightbox } from "../components/ImageLightbox";
 import { Navbar } from "../components/Navbar";
 import { InteractiveFooter } from "../components/InteractiveFooter";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
-import { config, getAchievementImageAlt, getAssetUrl, hasAchievementCategory } from "@/app/config";
+import {
+  type Achievement,
+  config,
+  getAchievementImageAlt,
+  getAssetUrl,
+  hasAchievementCategory,
+} from "@/app/config";
 
 export function AchievementsPage() {
+  const [lightboxItem, setLightboxItem] = useState<Achievement | null>(null);
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "Montserrat, sans-serif" }}>
       <Navbar />
@@ -33,17 +42,25 @@ export function AchievementsPage() {
             {config.achievements.map((achievement, index) => (
               <li key={`${achievement.sortDate}-${index}`}>
                 <article className="h-full rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm border-2 border-[#F59E0B]/30 shadow-xl flex flex-col">
-                  <div className="relative aspect-[4/3] overflow-hidden group">
-                    <ImageWithFallback
-                      src={getAssetUrl(achievement.image)}
-                      alt={getAchievementImageAlt(achievement)}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
-                    <span className="absolute top-3 right-4 text-5xl" aria-hidden>
-                      {achievement.medal}
-                    </span>
-                  </div>
+                  <button
+                    type="button"
+                    className="relative m-0 w-full p-0 border-0 bg-transparent text-left cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F59E0B] rounded-t-2xl"
+                    onClick={() => setLightboxItem(achievement)}
+                    aria-label={`Ampliar imagem da conquista: ${achievement.title}`}
+                    title="Clique para ampliar"
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden group">
+                      <ImageWithFallback
+                        src={getAssetUrl(achievement.image)}
+                        alt={getAchievementImageAlt(achievement)}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
+                      <span className="absolute top-3 right-4 text-5xl pointer-events-none" aria-hidden>
+                        {achievement.medal}
+                      </span>
+                    </div>
+                  </button>
                   <div className="p-5 md:p-6 flex flex-col flex-1 text-center">
                     <h2 className="text-white font-black text-lg md:text-xl leading-snug mb-1.5">
                       {achievement.title}
@@ -61,6 +78,18 @@ export function AchievementsPage() {
               </li>
             ))}
           </ul>
+
+          {lightboxItem && (
+            <ImageLightbox
+              open
+              onOpenChange={(o) => {
+                if (!o) setLightboxItem(null);
+              }}
+              src={getAssetUrl(lightboxItem.image)}
+              alt={getAchievementImageAlt(lightboxItem)}
+              title={lightboxItem.title}
+            />
+          )}
         </div>
       </main>
       <InteractiveFooter />
