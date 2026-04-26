@@ -1,3 +1,4 @@
+import { HomeSeo } from "../seo/HomeSeo";
 import { InteractiveHero } from "../components/InteractiveHero";
 import { AboutSection } from "../components/AboutSection";
 import { InteractiveStatsSection } from "../components/InteractiveStatsSection";
@@ -11,6 +12,7 @@ import { InteractiveFooter } from "../components/InteractiveFooter";
 export function HomePage() {
   return (
     <main>
+      <HomeSeo />
       <InteractiveHero />
       <AboutSection />
       <InteractiveStatsSection />

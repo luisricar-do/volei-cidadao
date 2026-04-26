@@ -13,7 +13,10 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#1D4ED8" />
 
-  <link rel="canonical" href="http://voleicidadao.com.br/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link rel="canonical" href="https://voleicidadao.com.br/" />
 
   <!-- Open Graph (Facebook, LinkedIn, WhatsApp, etc.) -->
   <meta property="og:type" content="website" />
@@ -22,9 +25,11 @@
   <meta property="og:title" content="Vôlei Cidadão — Vôlei gratuito em São Bento do Sapucaí" />
   <meta property="og:description"
     content="Projeto social de vôlei gratuito em São Bento do Sapucaí (SP). Transformando vidas através do esporte — mais que um jogo, uma escola de cidadania." />
-  <meta property="og:url" content="http://voleicidadao.com.br/" />
-  <meta property="og:image" content="http://voleicidadao.com.br/images/hero.jpeg" />
+  <meta property="og:url" content="https://voleicidadao.com.br/" />
+  <meta property="og:image" content="https://voleicidadao.com.br/images/hero.jpeg" />
   <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1440" />
+  <meta property="og:image:height" content="1440" />
   <meta property="og:image:alt" content="Equipe e momentos do projeto Vôlei Cidadão em São Bento do Sapucaí" />
 
   <!-- Twitter / X -->
@@ -32,9 +37,39 @@
   <meta name="twitter:title" content="Vôlei Cidadão — Vôlei gratuito em São Bento do Sapucaí" />
   <meta name="twitter:description"
     content="Projeto social de vôlei gratuito em São Bento do Sapucaí (SP). Transformando vidas através do esporte — mais que um jogo, uma escola de cidadania." />
-  <meta name="twitter:image" content="http://voleicidadao.com.br/images/hero.jpeg" />
+  <meta name="twitter:image" content="https://voleicidadao.com.br/images/hero.jpeg" />
   <meta name="twitter:image:alt" content="Equipe e momentos do projeto Vôlei Cidadão em São Bento do Sapucaí" />
   <meta name="twitter:site" content="@volei_cidadao_sbs" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SportsOrganization",
+        "@id": "https://voleicidadao.com.br/#organization",
+        "name": "Vôlei Cidadão",
+        "url": "https://voleicidadao.com.br",
+        "areaServed": {
+          "@type": "City",
+          "name": "São Bento do Sapucaí",
+          "containedInPlace": { "@type": "State", "name": "São Paulo" }
+        },
+        "sameAs": [
+          "https://www.instagram.com/volei_cidadao_sbs",
+          "https://www.facebook.com/VoleiCidadao"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://voleicidadao.com.br/#website",
+        "url": "https://voleicidadao.com.br",
+        "name": "Vôlei Cidadão",
+        "publisher": { "@id": "https://voleicidadao.com.br/#organization" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>

@@ -1,3 +1,4 @@
+import { AchievementsSeo } from "../seo/AchievementsSeo";
 import { Link } from "react-router";
 import { useAchievementLightbox } from "@/app/hooks/useAchievementLightbox";
 import { CONQUISTAS_VER_MAIS_ANCHOR } from "@/app/routeAnchors";
@@ -17,6 +18,7 @@ export function AchievementsPage() {
     useAchievementLightbox();
   return (
     <div className="min-h-screen flex flex-col" style={{ fontFamily: "Montserrat, sans-serif" }}>
+      <AchievementsSeo />
       <Navbar />
       <main className="flex-1 bg-gradient-to-br from-[#0F1F4E] to-[#1D4ED8]">
         <div className="max-w-6xl mx-auto px-4 py-16 md:py-24">
