@@ -52,36 +52,23 @@ export interface AppConfig {
     taglineFull: string;
     coachName: string;
   };
-  theme: {
-    primary: string;
-    secondary: string;
-    accent: string;
-    accentHover: string;
-    accentLight: string;
-  };
   nav: {
     links: Array<{ label: string; href: string }>;
     ctaText: string;
   };
   contact: {
     waitlistFormUrl: string;
-    whatsapp: string;
-    whatsappDisplay: string;
     instagramUrl: string;
     instagramHandle: string;
     facebookUrl: string;
   };
   location: {
-    venueName: string;
     venueShort: string;
     venueFull: string;
     venueSubtitle: string;
-    address: string;
-    cityState: string;
     addressFull: string;
     addressLine: string;
     mapUrl: string;
-    image: string;
     /** Segundo polo de treino (ex.: escola), sem mapa se não informado. */
     secondaryVenue: {
       venueFull: string;
@@ -90,7 +77,6 @@ export interface AppConfig {
     };
   };
   stats: {
-    totalStudents: number;
     studentsDisplay: string;
     /** Pessoas que já passaram pelo projeto (cumulative). */
     alumniDisplay: string;
@@ -101,11 +87,8 @@ export interface AppConfig {
     ageRange: string;
     freeLabel: string;
     gratuito: string;
-    venueCount: number;
-    titles2025: number;
   };
   achievements: Achievement[];
-  achievementsBanner: { title: string; subtitle: string };
   /** Notícias e divulgação de eventos (ordem = ordem do array). */
   news: NewsItem[];
   /** Horários por local (dias, horário, polo). */
@@ -115,16 +98,6 @@ export interface AppConfig {
     time: string;
     venueShort?: string;
   }>;
-  hero: {
-    image: string;
-    badge: string;
-    headline: string;
-    subtitle: string;
-    subtitleHighlight: string;
-    ctaParticipate: string;
-    ctaStory: string;
-    quickStats: Array<{ value: string; label: string }>;
-  };
   interactiveHero: {
     image: string;
     title: string;
@@ -149,9 +122,7 @@ export interface AppConfig {
       position: { top?: string; right?: string; bottom?: string; left?: string };
     }>;
   };
-  footer: { copyright: string; madeBy: string };
-  footerQuickLinks: Array<{ label: string; href: string }>;
-  whatsappMessages: { participate: string; support: string };
+  footer: { copyright: string };
 }
 
 function sortAchievementsByDate(achievements: Achievement[]): Achievement[] {
@@ -173,15 +144,6 @@ export function getAchievementImageAlt(achievement: Achievement): string {
 export function hasAchievementCategory(category: string): boolean {
   const t = category.trim();
   return t.length > 0 && t !== "—";
-}
-
-/** URL do WhatsApp com número do config */
-export function getWhatsAppUrl(message?: string): string {
-  const base = `https://wa.me/${config.contact.whatsapp}`;
-  if (message) {
-    return `${base}?text=${encodeURIComponent(message)}`;
-  }
-  return base;
 }
 
 /**

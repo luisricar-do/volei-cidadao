@@ -9,13 +9,6 @@
     "taglineFull": "Mais que um esporte — uma escola de cidadania",
     "coachName": "Treinador Rafael"
   },
-  "theme": {
-    "primary": "#1D4ED8",
-    "secondary": "#0F1F4E",
-    "accent": "#F59E0B",
-    "accentHover": "#D97706",
-    "accentLight": "#FCD34D"
-  },
   "nav": {
     "links": [
       {
@@ -47,38 +40,29 @@
   },
   "contact": {
     "waitlistFormUrl": "https://docs.google.com/forms/d/e/1FAIpQLSf2R5mAy0f9kUBTRujgJHUYky-uRJxPCz8jql-aK9hxIkQ_tw/viewform?usp=sharing",
-    "whatsapp": "5512999999999",
-    "whatsappDisplay": "(12) 99999-9999",
     "instagramUrl": "https://www.instagram.com/volei_cidadao_sbs",
     "instagramHandle": "@volei_cidadao_sbs",
     "facebookUrl": "https://www.facebook.com/VoleiCidadao"
   },
   "location": {
-    "venueName": "Centro de Lazer José Antonio Teixeira",
     "venueShort": "Centro de Lazer José A. Teixeira",
     "venueFull": "Centro de Lazer do Trabalhador",
     "venueSubtitle": "José Antonio Teixeira",
-    "address": "Jardim dos Cisnes",
-    "cityState": "São Bento do Sapucaí, SP",
     "addressFull": "Jardim dos Cisnes — São Bento do Sapucaí, SP",
     "addressLine": "Jardim dos Cisnes, SBS - SP",
     "mapUrl": "https://maps.google.com",
-    "image": "images/local.jpg",
     "secondaryVenue": {
       "venueFull": "Escola Jd. do Cisnes",
       "addressFull": "Jardim dos Cisnes — São Bento do Sapucaí, SP"
     }
   },
   "stats": {
-    "totalStudents": 150,
     "studentsDisplay": "150+",
     "alumniDisplay": "900+",
     "foundedYear": 2015,
     "ageRange": "9-17",
     "freeLabel": "100%",
-    "gratuito": "Gratuito",
-    "venueCount": 2,
-    "titles2025": 2
+    "gratuito": "Gratuito"
   },
   "achievements": [
     {
@@ -234,10 +218,6 @@
       "image": "images/conquistas/torneio-natercia-mg-2019.png"
     }
   ],
-  "achievementsBanner": {
-    "title": "Campeões da Copa CISMA 2025 — Sub-18",
-    "subtitle": "4º lugar na Taça Ouro - Copa Amizade"
-  },
   "news": [
     {
       "kicker": "Vem aí",
@@ -279,29 +259,6 @@
       "time": "14h – 19h30"
     }
   ],
-  "hero": {
-    "image": "images/hero.jpg",
-    "badge": "SÃO BENTO DO SAPUCAÍ / SP",
-    "headline": "Mais que um jogo, uma lição de vida.",
-    "subtitle": "Transformamos o futuro de {totalStudents} crianças e jovens em {city} através do esporte, da disciplina e da cidadania.",
-    "subtitleHighlight": "100% gratuito.",
-    "ctaParticipate": "Quero Participar",
-    "ctaStory": "Conheça nossa história",
-    "quickStats": [
-      {
-        "value": "150+",
-        "label": "Alunos"
-      },
-      {
-        "value": "100%",
-        "label": "Gratuito"
-      },
-      {
-        "value": "9-17",
-        "label": "Anos"
-      }
-    ]
-  },
   "interactiveHero": {
     "image": "images/hero.jpeg",
     "title": "PROJETO VÔLEI CIDADÃO",
@@ -375,35 +332,5 @@
   },
   "footer": {
     "copyright": "© 2026 Projeto Vôlei Cidadão -São Bento do Sapucaí, SP."
-  },
-  "footerQuickLinks": [
-    {
-      "label": "Início",
-      "href": "#hero"
-    },
-    {
-      "label": "Sobre o Projeto",
-      "href": "#sobre"
-    },
-    {
-      "label": "Conquistas",
-      "href": "#conquistas"
-    },
-    {
-      "label": "Notícias",
-      "href": "#noticias"
-    },
-    {
-      "label": "Onde Treinamos",
-      "href": "#local"
-    },
-    {
-      "label": "Como Ajudar",
-      "href": "#apoie"
-    }
-  ],
-  "whatsappMessages": {
-    "participate": "Olá! Quero fazer parte do Projeto Vôlei Cidadão!",
-    "support": "Olá, gostaria de apoiar o Projeto Vôlei Cidadão!"
   }
 }
