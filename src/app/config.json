@@ -65,8 +65,8 @@
     "mapUrl": "https://maps.google.com",
     "image": "images/local.jpg",
     "secondaryVenue": {
-      "venueFull": "Escola Jd. do Cisne",
-      "addressFull": "Jardim dos Cisne — São Bento do Sapucaí, SP"
+      "venueFull": "Escola Jd. do Cisnes",
+      "addressFull": "Jardim dos Cisnes — São Bento do Sapucaí, SP"
     }
   },
   "stats": {
@@ -267,8 +267,8 @@
       "time": "16h30 – 19h"
     },
     {
-      "venue": "Escola Jd. do Cisne",
-      "venueShort": "E.M. Jd. do Cisne",
+      "venue": "Escola Jd. do Cisnes",
+      "venueShort": "E.M. Jd. do Cisnes",
       "days": "Quarta e quinta",
       "time": "16h30 – 19h30"
     },
