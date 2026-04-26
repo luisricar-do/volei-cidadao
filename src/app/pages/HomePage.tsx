@@ -2,6 +2,7 @@ import { InteractiveHero } from "../components/InteractiveHero";
 import { AboutSection } from "../components/AboutSection";
 import { InteractiveStatsSection } from "../components/InteractiveStatsSection";
 import { InteractiveGallerySection } from "../components/InteractiveGallerySection";
+import { NewsSection } from "../components/NewsSection";
 import { InteractiveAttackSection } from "../components/InteractiveAttackSection";
 import { ParallaxImages } from "../components/ParallaxImages";
 import { LocationSection } from "../components/LocationSection";
@@ -14,6 +15,7 @@ export function HomePage() {
       <AboutSection />
       <InteractiveStatsSection />
       <InteractiveGallerySection maxItems={5} />
+      <NewsSection />
       <InteractiveAttackSection />
       <ParallaxImages />
       <LocationSection />

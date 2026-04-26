@@ -31,7 +31,7 @@ export function LocationSection() {
                   <Clock size={18} className="text-white" />
                 </div>
                 <h3 className="text-gray-900" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '1rem' }}>
-                  Horários por Turma
+                  Horários de treino
                 </h3>
               </div>
               <div className="space-y-3">
@@ -40,10 +40,11 @@ export function LocationSection() {
                     <div className="flex items-center justify-between flex-wrap gap-2">
                       <div>
                         <span
-                          className="inline-block bg-[#1D4ED8] text-white px-2.5 py-0.5 rounded-full mb-1"
+                          className="inline-block bg-[#1D4ED8] text-white px-2.5 py-0.5 rounded-full mb-1 max-w-[min(100%,16rem)] text-left leading-snug"
                           style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '0.75rem' }}
+                          title={item.venue}
                         >
-                          {item.age}
+                          {item.venueShort ?? item.venue}
                         </span>
                         <p className="text-gray-600" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.85rem' }}>{item.days}</p>
                       </div>
@@ -90,6 +91,35 @@ export function LocationSection() {
                   >
                     Ver no mapa <ChevronRight size={14} />
                   </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Segundo polo de treino */}
+            <div className="relative rounded-2xl p-5 md:p-6 border border-amber-100 overflow-hidden bg-[#FFFBEB]">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#F59E0B]/10 to-transparent pointer-events-none" aria-hidden />
+              <div className="relative z-10 flex items-start gap-4">
+                <div className="w-12 h-12 bg-[#F59E0B] rounded-xl flex items-center justify-center flex-shrink-0">
+                  <MapPin size={22} className="text-white" />
+                </div>
+                <div>
+                  <h3 className="text-gray-900 mb-1" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '1rem' }}>
+                    {config.location.secondaryVenue.venueFull}
+                  </h3>
+                  <p className="text-gray-600 mt-1" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.9rem' }}>
+                    {config.location.secondaryVenue.addressFull}
+                  </p>
+                  {config.location.secondaryVenue.mapUrl ? (
+                    <a
+                      href={config.location.secondaryVenue.mapUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 mt-2 text-[#D97706] hover:text-[#B45309] transition-colors"
+                      style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.85rem' }}
+                    >
+                      Ver no mapa <ChevronRight size={14} />
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </div>

@@ -2,8 +2,13 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { VolleyballBall } from "./VolleyballBall";
 import { config } from "@/app/config";
+import { getImpactStatYearsLabel, getProjectAgeYears } from "@/app/utils/projectHistory";
 
 export function InteractiveAttackSection() {
+  const yearsOfHistory = getProjectAgeYears(config.stats.foundedYear);
+  const sinceText = config.stats.foundedMonthLabel
+    ? `desde ${config.stats.foundedMonthLabel} de ${config.stats.foundedYear}`
+    : `desde ${config.stats.foundedYear}`;
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -129,7 +134,14 @@ export function InteractiveAttackSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.7 }}
           >
-            Alunos ativos, histórico de quem passou e anos de existência — desde {config.stats.foundedYear}
+            {yearsOfHistory > 0 ? (
+              <>
+                <span className="text-white">
+                  Há {yearsOfHistory} {yearsOfHistory === 1 ? "ano" : "anos"} de história.
+                </span>{" "}
+              </>
+            ) : null}
+            Alunos ativos, vidas alcançadas (histórico) e impacto contínuo no território — {sinceText}.
           </motion.p>
 
           {/* Números de impacto */}
@@ -147,13 +159,11 @@ export function InteractiveAttackSection() {
               },
               {
                 number: config.stats.alumniDisplay,
-                label: "Já passaram",
+                label: "Crianças atendidas",
               },
               {
-                number: String(
-                  new Date().getFullYear() - config.stats.foundedYear
-                ),
-                label: "Anos de história",
+                number: yearsOfHistory > 0 ? String(yearsOfHistory) : "—",
+                label: getImpactStatYearsLabel(yearsOfHistory),
               },
             ].map((stat, index) => (
               <motion.div

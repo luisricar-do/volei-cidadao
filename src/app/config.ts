@@ -14,6 +14,33 @@ export interface Achievement {
   image: string;
 }
 
+/**
+ * Anúncio / evento na seção de notícias. Ordem de exibição = ordem do array no JSON
+ * (sem reordenação no código).
+ */
+export interface NewsItem {
+  title: string;
+  /** Ex.: "Vem aí". */
+  kicker?: string;
+  /** Texto de apoio (parágrafo). */
+  excerpt?: string;
+  /** Lista de atrações ou tópicos. */
+  highlights?: string[];
+  dateLabel: string;
+  timeLabel: string;
+  /** Ex.: "Bingo às 20h". */
+  extraTimeLabel?: string;
+  venue: string;
+  city?: string;
+  /** Atração em destaque, ex. nome do artista. */
+  featuredGuest?: string;
+  /** Caminho em `public/` (ex. `images/noticias/...`) ou URL https. */
+  image?: string;
+  /** ISO (YYYY-MM-DD) para referência/ordem futura. */
+  sortDate: string;
+  mapUrl?: string;
+}
+
 export interface AppConfig {
   brand: {
     name: string;
@@ -55,6 +82,12 @@ export interface AppConfig {
     addressLine: string;
     mapUrl: string;
     image: string;
+    /** Segundo polo de treino (ex.: escola), sem mapa se não informado. */
+    secondaryVenue: {
+      venueFull: string;
+      addressFull: string;
+      mapUrl?: string;
+    };
   };
   stats: {
     totalStudents: number;
@@ -63,6 +96,8 @@ export interface AppConfig {
     alumniDisplay: string;
     /** Ano de fundação do Vôlei Cidadão. */
     foundedYear: number;
+    /** Mês de início opcional, ex. "abril" — "desde abril de 2014"; se ausente, só o ano. */
+    foundedMonthLabel?: string;
     ageRange: string;
     freeLabel: string;
     gratuito: string;
@@ -71,7 +106,15 @@ export interface AppConfig {
   };
   achievements: Achievement[];
   achievementsBanner: { title: string; subtitle: string };
-  schedule: Array<{ age: string; days: string; time: string }>;
+  /** Notícias e divulgação de eventos (ordem = ordem do array). */
+  news: NewsItem[];
+  /** Horários por local (dias, horário, polo). */
+  schedule: Array<{
+    venue: string;
+    days: string;
+    time: string;
+    venueShort?: string;
+  }>;
   hero: {
     image: string;
     badge: string;

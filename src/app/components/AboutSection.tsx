@@ -1,17 +1,32 @@
 import { Heart, Star, Users } from "lucide-react";
 import { config, getAssetUrl } from "@/app/config";
+import { getAnniversaryBadgeText, getSinceTooltip } from "@/app/utils/projectHistory";
 
 const pillarIcons = [Users, Heart, Star];
 
 export function AboutSection() {
+  const anniversaryBadge = getAnniversaryBadgeText(config.stats.foundedYear);
+  const sinceTooltip = getSinceTooltip(
+    config.stats.foundedYear,
+    config.stats.foundedMonthLabel
+  );
+
   return (
     <section id="sobre" className="py-16 md:py-24 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* Section header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-blue-50 text-[#1D4ED8] px-4 py-1.5 rounded-full mb-4">
-            <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.08em' }}>SOBRE O PROJETO</span>
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+            <div className="inline-flex items-center gap-2 bg-blue-50 text-[#1D4ED8] px-4 py-1.5 rounded-full">
+              <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 700, fontSize: '0.75rem', letterSpacing: '0.08em' }}>SOBRE O PROJETO</span>
+            </div>
+            <div
+              className="inline-flex items-center border-2 border-dashed border-[#F59E0B] text-[#B45309] bg-amber-50/90 px-3 py-1.5 rounded-full shadow-sm"
+              title={sinceTooltip}
+            >
+              <span style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 800, fontSize: '0.7rem', letterSpacing: '0.06em' }}>{anniversaryBadge}</span>
+            </div>
           </div>
           <h2 className="text-gray-900 mb-4" style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: 900, fontSize: 'clamp(1.6rem, 4vw, 2.5rem)', lineHeight: '1.15', letterSpacing: '-0.02em' }}>
             O Saque Inicial para<br className="hidden sm:block" />
@@ -49,7 +64,7 @@ export function AboutSection() {
                 <div key={point} className="flex items-start gap-3">
                   <div className="mt-0.5 w-5 h-5 rounded-full bg-[#1D4ED8] flex items-center justify-center flex-shrink-0">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
-                      <path d="M2 5L4 7L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 5L4 7L8 3" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
                   <span className="text-gray-700" style={{ fontFamily: 'Inter, sans-serif', fontSize: '0.95rem', lineHeight: '1.5' }}>{point}</span>

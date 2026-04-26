@@ -31,6 +31,10 @@
         "href": "#conquistas"
       },
       {
+        "label": "Notícias",
+        "href": "#noticias"
+      },
+      {
         "label": "Local",
         "href": "#local"
       },
@@ -59,17 +63,21 @@
     "addressFull": "Jardim dos Cisnes — São Bento do Sapucaí, SP",
     "addressLine": "Jardim dos Cisnes, SBS - SP",
     "mapUrl": "https://maps.google.com",
-    "image": "images/local.jpg"
+    "image": "images/local.jpg",
+    "secondaryVenue": {
+      "venueFull": "Escola Jd. do Cisne",
+      "addressFull": "Jardim dos Cisne — São Bento do Sapucaí, SP"
+    }
   },
   "stats": {
     "totalStudents": 150,
     "studentsDisplay": "150+",
-    "alumniDisplay": "400+",
-    "foundedYear": 2014,
+    "alumniDisplay": "900+",
+    "foundedYear": 2015,
     "ageRange": "9-17",
     "freeLabel": "100%",
     "gratuito": "Gratuito",
-    "venueCount": 1,
+    "venueCount": 2,
     "titles2025": 2
   },
   "achievements": [
@@ -230,21 +238,45 @@
     "title": "Campeões da Copa CISMA 2025 — Sub-18",
     "subtitle": "4º lugar na Taça Ouro - Copa Amizade"
   },
+  "news": [
+    {
+      "kicker": "Vem aí",
+      "title": "Arraiá do Vôlei Cidadão",
+      "excerpt": "Festa no clima de arraiá, com atrações para toda a família — e muita animação.",
+      "highlights": [
+        "Comidas e bebidas",
+        "Correio elegante e boca do palhaço",
+        "Som ao vivo",
+        "Bingo, quadrilha e muita diversão"
+      ],
+      "featuredGuest": "Bruna Moraes",
+      "dateLabel": "30 de maio de 2026",
+      "timeLabel": "18h",
+      "extraTimeLabel": "Bingo às 20h",
+      "venue": "Rincão São Benedito",
+      "city": "São Bento do Sapucaí, SP",
+      "image": "images/noticias/arraia-volei-cidadao-2026.png",
+      "sortDate": "2026-05-30"
+    }
+  ],
   "schedule": [
     {
-      "age": "9 - 11 anos",
-      "days": "Segunda e Quarta",
-      "time": "14h00 - 15h30"
+      "venue": "Centro de Lazer do Trabalhador",
+      "venueShort": "C.L. Trabalhador",
+      "days": "Segunda e sexta",
+      "time": "16h30 – 19h"
     },
     {
-      "age": "12 - 14 anos",
-      "days": "Terça e Quinta",
-      "time": "15h30 - 17h00"
+      "venue": "Escola Jd. do Cisne",
+      "venueShort": "E.M. Jd. do Cisne",
+      "days": "Quarta e quinta",
+      "time": "16h30 – 19h30"
     },
     {
-      "age": "15 - 17 anos",
-      "days": "Segunda, Quarta e Sexta",
-      "time": "17h00 - 18h30"
+      "venue": "Centro de Lazer do Trabalhador",
+      "venueShort": "C.L. Trabalhador",
+      "days": "Sábado",
+      "time": "14h – 19h30"
     }
   ],
   "hero": {
@@ -357,6 +389,10 @@
     {
       "label": "Conquistas",
       "href": "#conquistas"
+    },
+    {
+      "label": "Notícias",
+      "href": "#noticias"
     },
     {
       "label": "Onde Treinamos",
